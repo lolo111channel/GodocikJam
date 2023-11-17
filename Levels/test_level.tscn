@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://d067xvfowi50a"]
+
+[ext_resource type="PackedScene" uid="uid://dawl00g8smvqm" path="res://Scripts/Player/player.tscn" id="1_64kgp"]
+[ext_resource type="PackedScene" uid="uid://dgpbddkqombrf" path="res://Scripts/Enemy/enemy.tscn" id="2_eraqa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkgok"]
+size = Vector2(188.375, 1648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxpn7"]
+size = Vector2(161.188, 1038)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ol0i3"]
+size = Vector2(188.375, 1038)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1maa"]
+size = Vector2(188.375, 993.386)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewhk2"]
+size = Vector2(3245, 308.938)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5ieq"]
+size = Vector2(591.5, 324.531)
+
+[node name="Test_Level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_64kgp")]
+position = Vector2(420, 528)
+
+[node name="BounceWall" type="StaticBody2D" parent="." groups=["BounceWall"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceWall"]
+position = Vector2(1918, 520)
+shape = SubResource("RectangleShape2D_rkgok")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BounceWall"]
+position = Vector2(1173, -87)
+shape = SubResource("RectangleShape2D_cxpn7")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BounceWall"]
+position = Vector2(1591, 41)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_ol0i3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BounceWall"]
+position = Vector2(1339.13, 1036.1)
+rotation = 1.75675
+shape = SubResource("RectangleShape2D_m1maa")
+
+[node name="BounceWall2" type="StaticBody2D" parent="." groups=["None"]]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BounceWall2"]
+position = Vector2(650, -84.9375)
+shape = SubResource("RectangleShape2D_ewhk2")
+debug_color = Color(0, 0, 0, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BounceWall2"]
+position = Vector2(-103.469, 419)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_ewhk2")
+debug_color = Color(0, 0, 0, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BounceWall2"]
+position = Vector2(1593.5, 1196)
+shape = SubResource("RectangleShape2D_ewhk2")
+debug_color = Color(0, 0, 0, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="BounceWall2"]
+position = Vector2(929, -1192)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_ewhk2")
+debug_color = Color(0, 0, 0, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="BounceWall2"]
+position = Vector2(796, 1110)
+rotation = -1.51781
+shape = SubResource("RectangleShape2D_a5ieq")
+debug_color = Color(0, 0, 0, 0.419608)
+
+[node name="Enemy" parent="." instance=ExtResource("2_eraqa")]
+position = Vector2(1527, 308)

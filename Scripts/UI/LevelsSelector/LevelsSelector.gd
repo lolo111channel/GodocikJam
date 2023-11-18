@@ -17,7 +17,6 @@ func _ready() -> void:
 		var levels = get_tree().get_nodes_in_group("LevelButton")
 		if levels.size() > 0:
 			for i in levels:
-				print(i.level_id)
 				i.is_unlock = Global.levels[i.level_id].is_unlock
 				i.score = Global.levels[i.level_id].score
 

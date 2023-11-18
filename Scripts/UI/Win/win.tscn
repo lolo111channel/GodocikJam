@@ -103,3 +103,4 @@ theme_override_font_sizes/font_size = 35
 text = "Następny Poziom"
 
 [connection signal="pressed" from="CenterContainer/GridContainer/CenterContainer/GridContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/CenterContainer/GridContainer/NextLevel" to="." method="_on_next_level_pressed"]

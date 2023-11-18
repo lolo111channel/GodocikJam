@@ -1,6 +1,6 @@
 extends Panel
 
-@export var level_path : PackedScene
+@export var level_path : String
 @export var level_id : int = 0
 @export var level_that_will_unlock : int = 1
 @export var level_name : String = "Poziom 1"
@@ -24,4 +24,5 @@ func _on_button_pressed():
 	if is_unlock:
 		Global.current_level_id = level_id
 		Global.current_level_that_will_unlock = level_that_will_unlock
-		get_tree().change_scene_to_packed(level_path)
+		
+		get_tree().change_scene_to_file(level_path)

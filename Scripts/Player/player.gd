@@ -63,7 +63,7 @@ func win() -> void:
 			winning_panel.visible = true
 			winning_panel.show_score(ammo)
 			
-			
+			winning_panel.next_level_id = Global.current_level_that_will_unlock
 			Global.finish(ammo+1)
 			
 		

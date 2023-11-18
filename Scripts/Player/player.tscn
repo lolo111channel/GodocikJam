@@ -1,19 +1,93 @@
-[gd_scene load_steps=4 format=3 uid="uid://dawl00g8smvqm"]
+[gd_scene load_steps=19 format=3 uid="uid://dawl00g8smvqm"]
 
 [ext_resource type="Texture2D" uid="uid://b4gw1x0eclm6t" path="res://icon.svg" id="1_3acx4"]
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_l6e3u"]
 [ext_resource type="PackedScene" uid="uid://cy5c1hv2djheo" path="res://Scripts/Bullet/bullet.tscn" id="2_xju5u"]
+[ext_resource type="Texture2D" uid="uid://cpx72p5w4lm1e" path="res://Graphics/WizardAnimations/WizardAttack1.png" id="3_6xbq4"]
+[ext_resource type="Texture2D" uid="uid://gdwetntpr4nu" path="res://Graphics/WizardAnimations/WizardIdle1.png" id="3_de2ru"]
+[ext_resource type="Texture2D" uid="uid://hyk3qco4to1b" path="res://Graphics/WizardAnimations/WizardIdle2.png" id="4_nrvjg"]
+[ext_resource type="Texture2D" uid="uid://cggbnnbpoduaf" path="res://Graphics/WizardAnimations/WizardAttack2.png" id="4_q1ctf"]
+[ext_resource type="Texture2D" uid="uid://crkkro52645hn" path="res://Graphics/WizardAnimations/WizardIdle3.png" id="5_j8qc3"]
+[ext_resource type="Texture2D" uid="uid://baufbpr8exa60" path="res://Graphics/WizardAnimations/WizardAttack3.png" id="5_jlkly"]
+[ext_resource type="Texture2D" uid="uid://cbbvu84svbi6f" path="res://Graphics/WizardAnimations/WizardAttack4.png" id="6_dw85k"]
+[ext_resource type="Texture2D" uid="uid://b8gem4lr6er3q" path="res://Graphics/WizardAnimations/WizardIdle4.png" id="6_qmt7x"]
+[ext_resource type="Texture2D" uid="uid://dfu1i6i3cepmd" path="res://Graphics/WizardAnimations/WizardAttack5.png" id="7_bpxxn"]
+[ext_resource type="Texture2D" uid="uid://vni234x2xjid" path="res://Graphics/WizardAnimations/WizardAttack6.png" id="8_8w6da"]
+[ext_resource type="Texture2D" uid="uid://etpc46cfdm23" path="res://Graphics/WizardAnimations/WizardAttack7.png" id="9_uo3y6"]
+[ext_resource type="Texture2D" uid="uid://c5njdflmspoqj" path="res://Graphics/WizardAnimations/WizardAttack8.png" id="10_v0prf"]
+[ext_resource type="Texture2D" uid="uid://iumy2s4xcpc6" path="res://Graphics/WizardAnimations/WizardAttack9.png" id="11_77i73"]
+[ext_resource type="Texture2D" uid="uid://hjmi2ah7jjsh" path="res://Graphics/WizardAnimations/WizardAttack10.png" id="12_n2mma"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ru4iu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6xbq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q1ctf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jlkly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dw85k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bpxxn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8w6da")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uo3y6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_v0prf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_77i73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_n2mma")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_de2ru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nrvjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j8qc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qmt7x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_l6e3u")
 bullet_scene = ExtResource("2_xju5u")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -1)
-scale = Vector2(0.671875, 0.671875)
-texture = ExtResource("1_3acx4")
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_ru4iu")
+animation = &"attack"
+frame = 2
+frame_progress = 0.605664
 
-[node name="BulletSpawn" type="Node2D" parent="."]
+[node name="Point" type="Node2D" parent="."]
+
+[node name="BulletSpawn" type="Node2D" parent="Point"]
 position = Vector2(67, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

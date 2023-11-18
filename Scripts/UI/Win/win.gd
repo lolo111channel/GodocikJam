@@ -4,7 +4,7 @@ extends Control
 var next_level_id : int = -1
 
 func show_score(score : int):
-	for i in score + 1:
+	for i in score:
 		points.get_children()[i].visible = true
 	
 

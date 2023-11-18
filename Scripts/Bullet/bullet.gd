@@ -1,6 +1,8 @@
 extends RigidBody2D
 
 
+func _ready() -> void:
+	$Sprite2D.play("default")
 
 func action(wall_name : String) -> void:
 	match wall_name:

@@ -113,7 +113,7 @@ columns = 5
 
 [node name="Level" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid" instance=ExtResource("3_0id4f")]
 layout_mode = 2
-level_path = "res://Levels/test_level.tscn"
+level_path = "res://Levels/level_1.tscn"
 
 [node name="Level2" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid" instance=ExtResource("3_0id4f")]
 layout_mode = 2

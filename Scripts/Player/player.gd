@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var bullet_spawn : Node2D = $BulletSpawn
+@onready var bullet_spawn : Node2D = $Point/BulletSpawn
 @export var bullet_scene : PackedScene
 
 var ammo : int = 3
@@ -13,10 +13,20 @@ var colors : Array[Color] = [
 
 var is_win : bool = false
 
-func _physics_process(delta) -> void:
-	if ammo > 0:
-		look_at(get_global_mouse_position())
+var is_start_shooting : bool = false
+var a : bool = false
 
+var current_pos : Vector2
+
+func _ready() -> void:
+	$Sprite2D.play("default")
+
+
+func _physics_process(delta) -> void:
+	#if ammo > 0:
+		#$Point.look_at(get_global_mouse_position())
+	pass
+	
 func _process(delta) -> void:
 	
 	win()
@@ -30,16 +40,30 @@ func _process(delta) -> void:
 	if Input.is_action_just_pressed("esc"):
 		get_tree().change_scene_to_file("res://Levels/main_menu.tscn")
 	
-	if Input.is_action_just_pressed("shoot") and ammo > 0 and !is_win:
+	if Input.is_action_just_pressed("shoot") and ammo > 0 and !is_win and !is_start_shooting:
+		$Sprite2D.play("attack")
+		is_start_shooting = true
+		
+		current_pos = get_global_mouse_position()
+		
+
+	if is_start_shooting and $Sprite2D.frame == 5 and !a:
 		var bullet : RigidBody2D = bullet_scene.instantiate()
-
-
 		bullet.global_position = bullet_spawn.global_position
-		bullet.linear_velocity = bullet_spawn.global_position.direction_to(get_global_mouse_position()) * 1400
+		bullet.linear_velocity = bullet_spawn.global_position.direction_to(current_pos) * 1400
 		
 		get_parent().add_child(bullet)
 		remove_ammo()
 		add_line_2d(bullet)
+		
+		a = true
+		
+	if $Sprite2D.frame >= 9 and is_start_shooting:
+		is_start_shooting = false
+		$Sprite2D.play("default")
+		
+		a = false
+		
 
 func remove_ammo() -> void:
 	ammo -= 1
@@ -61,7 +85,7 @@ func win() -> void:
 			is_win = true
 			
 			winning_panel.visible = true
-			winning_panel.show_score(ammo)
+			winning_panel.show_score(ammo+1)
 			
 			winning_panel.next_level_id = Global.current_level_that_will_unlock
 			Global.finish(ammo+1)

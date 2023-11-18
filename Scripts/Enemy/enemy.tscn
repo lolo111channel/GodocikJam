@@ -1,16 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgpbddkqombrf"]
+[gd_scene load_steps=4 format=3 uid="uid://dgpbddkqombrf"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy/enemy.gd" id="1_gpc2k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5owj"]
 radius = 39.0128
 
-[node name="Enemy" type="Area2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8hytd"]
+radius = 41.0
+
+[node name="Enemy" type="StaticBody2D" groups=["Enemy"]]
 script = ExtResource("1_gpc2k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -0.000747414
+scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_p5owj")
 debug_color = Color(0.533333, 0, 0.141176, 0.419608)
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_8hytd")
+debug_color = Color(0.556863, 0, 0.101961, 0.419608)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

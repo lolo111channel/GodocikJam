@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://d067xvfowi50a"]
+[gd_scene load_steps=12 format=3 uid="uid://d067xvfowi50a"]
 
+[ext_resource type="PackedScene" uid="uid://d0oscsv4gu6c3" path="res://Scripts/UI/GameOver/game_over.tscn" id="1_03aps"]
 [ext_resource type="PackedScene" uid="uid://dawl00g8smvqm" path="res://Scripts/Player/player.tscn" id="1_64kgp"]
 [ext_resource type="PackedScene" uid="uid://dgpbddkqombrf" path="res://Scripts/Enemy/enemy.tscn" id="2_eraqa"]
 
@@ -18,10 +19,21 @@ size = Vector2(188.375, 993.386)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewhk2"]
 size = Vector2(3245, 308.938)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mcbn"]
+size = Vector2(1471, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5ieq"]
-size = Vector2(591.5, 324.531)
+size = Vector2(591.5, 217.983)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vve2"]
+size = Vector2(532.75, 33.2655)
 
 [node name="Test_Level" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["UI"]]
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("1_03aps")]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_64kgp")]
 position = Vector2(420, 528)
@@ -65,16 +77,24 @@ shape = SubResource("RectangleShape2D_ewhk2")
 debug_color = Color(0, 0, 0, 0.419608)
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="BounceWall2"]
-position = Vector2(929, -1192)
+position = Vector2(1079, -308)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_ewhk2")
+shape = SubResource("RectangleShape2D_7mcbn")
 debug_color = Color(0, 0, 0, 0.419608)
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="BounceWall2"]
-position = Vector2(796, 1110)
+position = Vector2(742.801, 1107.18)
 rotation = -1.51781
 shape = SubResource("RectangleShape2D_a5ieq")
 debug_color = Color(0, 0, 0, 0.419608)
 
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="BounceWall2"]
+position = Vector2(265.625, 426.633)
+shape = SubResource("RectangleShape2D_3vve2")
+debug_color = Color(0, 0, 0, 0.419608)
+
 [node name="Enemy" parent="." instance=ExtResource("2_eraqa")]
 position = Vector2(1527, 308)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_eraqa")]
+position = Vector2(686, 218)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdtn6ijqtih53"]
+
+[ext_resource type="Script" path="res://Scripts/bullet_pos.gd" id="1_ol334"]
+
+[node name="Line2D" type="Line2D"]
+script = ExtResource("1_ol334")

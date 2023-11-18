@@ -4,6 +4,8 @@ extends RigidBody2D
 
 func action(wall_name : String) -> void:
 	match wall_name:
+		"Enemy":
+			pass
 		"BounceWall":
 			pass
 		_:

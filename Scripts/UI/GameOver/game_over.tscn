@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://d0oscsv4gu6c3"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="GridContainer"]
+custom_minimum_size = Vector2(1920, 100)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="GridContainer/CenterContainer"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GridContainer/CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 61
+text = "Przegrałeś"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="GridContainer"]
+custom_minimum_size = Vector2(1920, 100)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="GridContainer/CenterContainer2"]
+layout_mode = 2
+theme_override_constants/h_separation = 115
+columns = 2
+
+[node name="Panel" type="Panel" parent="GridContainer/CenterContainer2/GridContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GridContainer/CenterContainer2/GridContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+text = "R - Reset"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="GridContainer/CenterContainer2/GridContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GridContainer/CenterContainer2/GridContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+text = "ESC - MENU"
+horizontal_alignment = 1
+vertical_alignment = 1

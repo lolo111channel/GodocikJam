@@ -1,0 +1,928 @@
+[gd_scene load_steps=4 format=3 uid="uid://drs0xtmvvh08m"]
+
+[ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenu.gd" id="1_s8s0s"]
+[ext_resource type="Script" path="res://Scripts/UI/LevelsSelector/LevelsSelector.gd" id="2_72fx4"]
+[ext_resource type="Texture2D" uid="uid://b4gw1x0eclm6t" path="res://icon.svg" id="2_w37ai"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("levels_selector")]
+visible = false
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 431.0
+grow_vertical = 2
+script = ExtResource("1_s8s0s")
+levels_selector = NodePath("../LevelsSelector")
+
+[node name="GameTitle" type="Label" parent="CanvasLayer/MainMenu"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 177.0
+offset_right = 440.0
+offset_bottom = 359.0
+theme_override_font_sizes/font_size = 80
+text = "Game title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="CenterContainer" parent="CanvasLayer/MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/MainMenu/Buttons"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="CanvasLayer/MainMenu/Buttons/Grid"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Graj
+"
+
+[node name="Options" type="Button" parent="CanvasLayer/MainMenu/Buttons/Grid"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Opcje
+"
+
+[node name="Credits" type="Button" parent="CanvasLayer/MainMenu/Buttons/Grid"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Autorzy
+"
+
+[node name="Quit" type="Button" parent="CanvasLayer/MainMenu/Buttons/Grid"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Wyjdź"
+
+[node name="LevelsSelector" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("main_menu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_72fx4")
+main_menu = NodePath("../MainMenu")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/LevelsSelector"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer"]
+custom_minimum_size = Vector2(275, 120)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Back" type="Button" parent="CanvasLayer/LevelsSelector/GridContainer/CenterContainer"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Wróć"
+
+[node name="Levels" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer"]
+custom_minimum_size = Vector2(1920, 0)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels"]
+layout_mode = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 5
+
+[node name="Level1" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelName" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level1/Grid"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level1/Grid/LevelName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Level1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level1/Grid"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level1/Grid/Center"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="0" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level1/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level1/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level1/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="Level2" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelName" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level2/Grid"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level2/Grid/LevelName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Level1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level2/Grid"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level2/Grid/Center"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="0" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level2/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level2/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level2/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="Level3" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelName" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level3/Grid"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level3/Grid/LevelName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Level1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level3/Grid"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level3/Grid/Center"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="0" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level3/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level3/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level3/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="Level4" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelName" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level4/Grid"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level4/Grid/LevelName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Level1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level4/Grid"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level4/Grid/Center"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="0" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level4/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level4/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level4/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="Level5" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelName" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level5/Grid"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level5/Grid/LevelName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Level1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level5/Grid"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level5/Grid/Center"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="0" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level5/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level5/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level5/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="Level6" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelName" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level6/Grid"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level6/Grid/LevelName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Level1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level6/Grid"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level6/Grid/Center"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="0" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level6/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level6/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level6/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="Level7" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelName" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level7/Grid"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level7/Grid/LevelName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Level1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level7/Grid"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level7/Grid/Center"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="0" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level7/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level7/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level7/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="Level8" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelName" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level8/Grid"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level8/Grid/LevelName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Level1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level8/Grid"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level8/Grid/Center"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="0" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level8/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level8/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level8/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="Level9" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelName" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level9/Grid"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level9/Grid/LevelName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Level1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level9/Grid"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level9/Grid/Center"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="0" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level9/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level9/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level9/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="Level10" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level10"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelName" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level10/Grid"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level10/Grid/LevelName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Level1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level10/Grid"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level10/Grid/Center"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="0" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level10/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level10/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level10/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="Level11" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level11"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelName" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level11/Grid"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level11/Grid/LevelName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Level1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level11/Grid"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level11/Grid/Center"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="0" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level11/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level11/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level11/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="Level12" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level12"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelName" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level12/Grid"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level12/Grid/LevelName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Level1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level12/Grid"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level12/Grid/Center"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="0" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level12/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level12/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level12/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="Level13" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level13"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelName" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level13/Grid"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level13/Grid/LevelName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Level1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level13/Grid"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level13/Grid/Center"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="0" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level13/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level13/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level13/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="Level14" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level14"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelName" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level14/Grid"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level14/Grid/LevelName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Level1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level14/Grid"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level14/Grid/Center"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="0" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level14/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level14/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level14/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="Level15" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level15"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelName" type="Panel" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level15/Grid"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level15/Grid/LevelName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Level1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level15/Grid"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level15/Grid/Center"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="0" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level15/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level15/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid/Level15/Grid/Center/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_w37ai")
+expand_mode = 1
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/Buttons/Grid/Play" to="CanvasLayer/MainMenu" method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/Buttons/Grid/Options" to="CanvasLayer/MainMenu" method="_on_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/Buttons/Grid/Credits" to="CanvasLayer/MainMenu" method="_on_credits_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/Buttons/Grid/Quit" to="CanvasLayer/MainMenu" method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelsSelector/GridContainer/CenterContainer/Back" to="CanvasLayer/LevelsSelector" method="_on_back_pressed"]

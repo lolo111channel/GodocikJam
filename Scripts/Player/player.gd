@@ -11,11 +11,15 @@ var colors : Array[Color] = [
 	Color(0, 0, 1, 0.39215686917305)
 ]
 
+var is_win : bool = false
+
 func _physics_process(delta) -> void:
 	if ammo > 0:
 		look_at(get_global_mouse_position())
 
 func _process(delta) -> void:
+	
+	win()
 	
 	if ammo <= 0:
 		game_over()
@@ -23,7 +27,7 @@ func _process(delta) -> void:
 	if Input.is_action_just_pressed("reset"):
 		get_tree().reload_current_scene()
 	
-	if Input.is_action_just_pressed("shoot") and ammo > 0:
+	if Input.is_action_just_pressed("shoot") and ammo > 0 and !is_win:
 		var bullet : RigidBody2D = bullet_scene.instantiate()
 
 
@@ -47,7 +51,16 @@ func game_over() -> void:
 		if get_tree().get_nodes_in_group("Enemy").size() > 0:
 			get_tree().get_nodes_in_group("UI")[0].get_node("GameOver").visible = true
 
-
+func win() -> void:
+	if get_tree().get_nodes_in_group("Enemy").size() <= 0:
+		var winning_panel = get_tree().get_first_node_in_group("UI").get_node("Win")
+		is_win = true
+		
+		winning_panel.visible = true
+		winning_panel.show_score(ammo)
+		
+		
+		
 func add_line_2d(object : Node2D) -> void:
 	var bullet_path_scene : PackedScene = load("res://Scripts/line_2d.tscn")
 	var bullet_path : Line2D = bullet_path_scene.instantiate()

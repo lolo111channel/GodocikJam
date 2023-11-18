@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://d067xvfowi50a"]
+[gd_scene load_steps=13 format=3 uid="uid://d067xvfowi50a"]
 
 [ext_resource type="PackedScene" uid="uid://d0oscsv4gu6c3" path="res://Scripts/UI/GameOver/game_over.tscn" id="1_03aps"]
 [ext_resource type="PackedScene" uid="uid://dawl00g8smvqm" path="res://Scripts/Player/player.tscn" id="1_64kgp"]
+[ext_resource type="PackedScene" uid="uid://d3tu0eht833vc" path="res://Scripts/UI/Win/win.tscn" id="2_52yer"]
 [ext_resource type="PackedScene" uid="uid://dgpbddkqombrf" path="res://Scripts/Enemy/enemy.tscn" id="2_eraqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkgok"]
@@ -33,6 +34,9 @@ size = Vector2(532.75, 33.2655)
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["UI"]]
 
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("1_03aps")]
+visible = false
+
+[node name="Win" parent="CanvasLayer" instance=ExtResource("2_52yer")]
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_64kgp")]

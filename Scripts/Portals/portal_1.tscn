@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsdj7edr1hfqi"]
+
+[ext_resource type="Script" path="res://Scripts/Portals/portal.gd" id="1_0270o"]
+[ext_resource type="Texture2D" uid="uid://b17kf183co8xd" path="res://Graphics/AnimatedElements/PortalBlue1.png" id="1_u4icq"]
+[ext_resource type="Texture2D" uid="uid://c6rl6r5bny32d" path="res://Graphics/AnimatedElements/PortalBlue2.png" id="2_rfwoc"]
+[ext_resource type="Texture2D" uid="uid://c2sfbvlc0ojcc" path="res://Graphics/AnimatedElements/PortalBlue3.png" id="3_s30a8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ek8g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u4icq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rfwoc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s30a8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_356ik"]
+size = Vector2(43.5, 113)
+
+[node name="Portal1" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_0270o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_8ek8g")
+frame_progress = 0.944546
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(41.75, -0.5)
+shape = SubResource("RectangleShape2D_356ik")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-150, 0)

@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://d067xvfowi50a"]
+[gd_scene load_steps=17 format=3 uid="uid://d067xvfowi50a"]
 
 [ext_resource type="PackedScene" uid="uid://d0oscsv4gu6c3" path="res://Scripts/UI/GameOver/game_over.tscn" id="1_03aps"]
 [ext_resource type="PackedScene" uid="uid://dawl00g8smvqm" path="res://Scripts/Player/player.tscn" id="1_64kgp"]
 [ext_resource type="PackedScene" uid="uid://d3tu0eht833vc" path="res://Scripts/UI/Win/win.tscn" id="2_52yer"]
 [ext_resource type="PackedScene" uid="uid://dgpbddkqombrf" path="res://Scripts/Enemy/enemy.tscn" id="2_eraqa"]
+[ext_resource type="PackedScene" uid="uid://bsdj7edr1hfqi" path="res://Scripts/Portals/portal_1.tscn" id="5_m6og0"]
+[ext_resource type="PackedScene" uid="uid://b682hw7rcwocb" path="res://Scripts/Portals/portal_2.tscn" id="6_dp4lm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkgok"]
 size = Vector2(188.375, 1648)
@@ -17,6 +19,9 @@ size = Vector2(188.375, 1038)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1maa"]
 size = Vector2(188.375, 993.386)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo3ar"]
+size = Vector2(103.188, 679.693)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewhk2"]
 size = Vector2(3245, 308.938)
 
@@ -25,6 +30,9 @@ size = Vector2(1471, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5ieq"]
 size = Vector2(591.5, 217.983)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmt2y"]
+size = Vector2(591.5, 59)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vve2"]
 size = Vector2(532.75, 33.2655)
@@ -62,6 +70,11 @@ position = Vector2(1339.13, 1036.1)
 rotation = 1.75675
 shape = SubResource("RectangleShape2D_m1maa")
 
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="BounceWall"]
+position = Vector2(494, 1060)
+rotation = 1.42758
+shape = SubResource("RectangleShape2D_bo3ar")
+
 [node name="BounceWall2" type="StaticBody2D" parent="." groups=["None"]]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BounceWall2"]
@@ -87,13 +100,18 @@ shape = SubResource("RectangleShape2D_7mcbn")
 debug_color = Color(0, 0, 0, 0.419608)
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="BounceWall2"]
-position = Vector2(742.801, 1107.18)
+position = Vector2(790, 1166)
 rotation = -1.51781
 shape = SubResource("RectangleShape2D_a5ieq")
 debug_color = Color(0, 0, 0, 0.419608)
 
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="BounceWall2"]
+position = Vector2(350, 718)
+shape = SubResource("RectangleShape2D_mmt2y")
+debug_color = Color(0, 0, 0, 0.419608)
+
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="BounceWall2"]
-position = Vector2(265.625, 426.633)
+position = Vector2(313, 342)
 shape = SubResource("RectangleShape2D_3vve2")
 debug_color = Color(0, 0, 0, 0.419608)
 
@@ -101,4 +119,12 @@ debug_color = Color(0, 0, 0, 0.419608)
 position = Vector2(1527, 308)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_eraqa")]
-position = Vector2(686, 218)
+position = Vector2(538, 932)
+
+[node name="Portal1" parent="." node_paths=PackedStringArray("portal") instance=ExtResource("5_m6og0")]
+position = Vector2(1756, 823)
+portal = NodePath("../Portal2")
+
+[node name="Portal2" parent="." node_paths=PackedStringArray("portal") instance=ExtResource("6_dp4lm")]
+position = Vector2(121, 904)
+portal = NodePath("../Portal1")

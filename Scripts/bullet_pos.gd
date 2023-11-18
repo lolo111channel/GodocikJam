@@ -1,6 +1,6 @@
 extends Line2D
 
-var object : Node2D
+@export var object : Node2D
 var color : Color = Color(0,0,0)
 
 func _ready() -> void:

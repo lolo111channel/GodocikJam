@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://depvcdi0byw7t"]
+
+[ext_resource type="PackedScene" uid="uid://bsdj7edr1hfqi" path="res://Scripts/Portals/portal_1.tscn" id="1_78bdu"]
+[ext_resource type="PackedScene" uid="uid://b682hw7rcwocb" path="res://Scripts/Portals/portal_2.tscn" id="2_awvah"]
+[ext_resource type="PackedScene" uid="uid://cy5c1hv2djheo" path="res://Scripts/Bullet/bullet.tscn" id="3_cj1qw"]
+[ext_resource type="PackedScene" uid="uid://bdtn6ijqtih53" path="res://Scripts/line_2d.tscn" id="4_dtgmc"]
+
+[node name="portal_test" type="Node2D"]
+
+[node name="Portal1" parent="." node_paths=PackedStringArray("portal") instance=ExtResource("1_78bdu")]
+position = Vector2(1805, 500)
+portal = NodePath("../Portal2")
+
+[node name="Portal2" parent="." node_paths=PackedStringArray("portal") instance=ExtResource("2_awvah")]
+position = Vector2(81, 500)
+portal = NodePath("../Portal1")
+
+[node name="Bullet" parent="." instance=ExtResource("3_cj1qw")]
+position = Vector2(535, 501)
+linear_velocity = Vector2(500, 0)
+pos = Vector2(1000, 500)
+
+[node name="Line2D" parent="." node_paths=PackedStringArray("object") instance=ExtResource("4_dtgmc")]
+object = NodePath("../Bullet")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(1016, 500)

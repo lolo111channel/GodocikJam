@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cyicbxab7swa3" path="res://Graphics/MirrorBottom.png" id="6_15oo8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gyssb"]
-size = Vector2(33, 631)
+size = Vector2(19, 631)
 
 [node name="Level1" type="Node2D"]
 
@@ -53,7 +53,7 @@ scale = Vector2(8, 8)
 texture = ExtResource("6_15oo8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BounceWall"]
-position = Vector2(41.5, 132.5)
+position = Vector2(48.5, 132.5)
 shape = SubResource("RectangleShape2D_gyssb")
 
 [node name="Enemy" parent="." instance=ExtResource("4_cr3hb")]

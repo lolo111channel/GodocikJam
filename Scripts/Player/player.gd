@@ -27,6 +27,9 @@ func _process(delta) -> void:
 	if Input.is_action_just_pressed("reset"):
 		get_tree().reload_current_scene()
 	
+	if Input.is_action_just_pressed("esc"):
+		get_tree().change_scene_to_file("res://Levels/main_menu.tscn")
+	
 	if Input.is_action_just_pressed("shoot") and ammo > 0 and !is_win:
 		var bullet : RigidBody2D = bullet_scene.instantiate()
 
@@ -52,14 +55,17 @@ func game_over() -> void:
 			get_tree().get_nodes_in_group("UI")[0].get_node("GameOver").visible = true
 
 func win() -> void:
-	if get_tree().get_nodes_in_group("Enemy").size() <= 0:
-		var winning_panel = get_tree().get_first_node_in_group("UI").get_node("Win")
-		is_win = true
-		
-		winning_panel.visible = true
-		winning_panel.show_score(ammo)
-		
-		
+	if !is_win:
+		if get_tree().get_nodes_in_group("Enemy").size() <= 0:
+			var winning_panel = get_tree().get_first_node_in_group("UI").get_node("Win")
+			is_win = true
+			
+			winning_panel.visible = true
+			winning_panel.show_score(ammo)
+			
+			
+			Global.finish(ammo+1)
+			
 		
 func add_line_2d(object : Node2D) -> void:
 	var bullet_path_scene : PackedScene = load("res://Scripts/line_2d.tscn")

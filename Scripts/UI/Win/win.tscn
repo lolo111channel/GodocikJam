@@ -101,3 +101,5 @@ layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 35
 text = "Następny Poziom"
+
+[connection signal="pressed" from="CenterContainer/GridContainer/CenterContainer/GridContainer/MainMenu" to="." method="_on_main_menu_pressed"]

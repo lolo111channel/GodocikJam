@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk3ds2jqfeeci"]
+
+[ext_resource type="Texture2D" uid="uid://b4gw1x0eclm6t" path="res://icon.svg" id="1_rkbss"]
+[ext_resource type="Script" path="res://Scripts/UI/LevelsSelector/level_button.gd" id="1_tht85"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_34qqp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cruhg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+
+[node name="Level" type="Panel" groups=["LevelButton"]]
+custom_minimum_size = Vector2(250, 100)
+script = ExtResource("1_tht85")
+
+[node name="Grid" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelName" type="Panel" parent="Grid"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Grid/LevelName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Level1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="CenterContainer" parent="Grid"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="Grid/Center"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 3
+
+[node name="0" type="TextureRect" parent="Grid/Center/Grid"]
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("1_rkbss")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="Grid/Center/Grid"]
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("1_rkbss")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="Grid/Center/Grid"]
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("1_rkbss")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_34qqp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cruhg")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

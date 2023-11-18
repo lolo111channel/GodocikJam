@@ -31,39 +31,40 @@ func _process(delta) -> void:
 	
 	win()
 	
-	if ammo <= 0:
-		game_over()
-	
-	if Input.is_action_just_pressed("reset"):
-		get_tree().reload_current_scene()
-	
-	if Input.is_action_just_pressed("esc"):
-		get_tree().change_scene_to_file("res://Levels/main_menu.tscn")
-	
-	if Input.is_action_just_pressed("shoot") and ammo > 0 and !is_win and !is_start_shooting:
-		$Sprite2D.play("attack")
-		is_start_shooting = true
+	if !is_win:
+		if ammo <= 0:
+			game_over()
 		
-		current_pos = get_global_mouse_position()
+		if Input.is_action_just_pressed("reset"):
+			get_tree().reload_current_scene()
 		
+		if Input.is_action_just_pressed("esc"):
+			get_tree().change_scene_to_file("res://Levels/main_menu.tscn")
+		
+		if Input.is_action_just_pressed("shoot") and ammo > 0 and !is_win and !is_start_shooting:
+			$Sprite2D.play("attack")
+			is_start_shooting = true
+			
+			current_pos = get_global_mouse_position()
+			
 
-	if is_start_shooting and $Sprite2D.frame == 5 and !a:
-		var bullet : RigidBody2D = bullet_scene.instantiate()
-		bullet.global_position = bullet_spawn.global_position
-		bullet.linear_velocity = bullet_spawn.global_position.direction_to(current_pos) * 1400
-		
-		get_parent().add_child(bullet)
-		remove_ammo()
-		add_line_2d(bullet)
-		
-		a = true
-		
-	if $Sprite2D.frame >= 9 and is_start_shooting:
-		is_start_shooting = false
-		$Sprite2D.play("default")
-		
-		a = false
-		
+		if is_start_shooting and $Sprite2D.frame == 5 and !a:
+			var bullet : RigidBody2D = bullet_scene.instantiate()
+			bullet.global_position = bullet_spawn.global_position
+			bullet.linear_velocity = bullet_spawn.global_position.direction_to(current_pos) * 1400
+			
+			get_parent().add_child(bullet)
+			remove_ammo()
+			add_line_2d(bullet)
+			
+			a = true
+			
+		if $Sprite2D.frame >= 9 and is_start_shooting:
+			is_start_shooting = false
+			$Sprite2D.play("default")
+			
+			a = false
+			
 
 func remove_ammo() -> void:
 	ammo -= 1

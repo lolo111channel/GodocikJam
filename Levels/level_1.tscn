@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://ba7uom1cv6ikp"]
+[gd_scene load_steps=13 format=3 uid="uid://ba7uom1cv6ikp"]
 
+[ext_resource type="Texture2D" uid="uid://edcyd53huhkk" path="res://Graphics/WallAtlas.png" id="1_hbo0p"]
 [ext_resource type="PackedScene" uid="uid://d0oscsv4gu6c3" path="res://Scripts/UI/GameOver/game_over.tscn" id="1_k522p"]
 [ext_resource type="PackedScene" uid="uid://d3tu0eht833vc" path="res://Scripts/UI/Win/win.tscn" id="2_l6tgx"]
 [ext_resource type="PackedScene" uid="uid://dawl00g8smvqm" path="res://Scripts/Player/player.tscn" id="3_1dhmq"]
@@ -8,10 +9,41 @@
 [ext_resource type="Texture2D" uid="uid://7bdr268v62ct" path="res://Graphics/MirrorMiddle.png" id="5_ffa4p"]
 [ext_resource type="Texture2D" uid="uid://cyicbxab7swa3" path="res://Graphics/MirrorBottom.png" id="6_15oo8"]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqy8o"]
+texture = ExtResource("1_hbo0p")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+4:2/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+4:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_d080w"]
+sources/0 = SubResource("TileSetAtlasSource_eqy8o")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gyssb"]
 size = Vector2(19, 631)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2m5g"]
+size = Vector2(1534, 397)
+
 [node name="Level1" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(8, 8)
+tile_set = SubResource("TileSet_d080w")
+format = 2
+layer_0/tile_data = PackedInt32Array(65548, 131072, 0, 131084, 262144, 1, 196620, 262144, 1, 262156, 262144, 1, 327692, 262144, 1, 393228, 262144, 1, 458764, 131072, 2, 458763, 65536, 4, 458762, 65536, 4, 458761, 65536, 4, 458760, 65536, 4, 458759, 65536, 4, 458758, 65536, 4, 458757, 65536, 4, 458756, 65536, 4, 458755, 65536, 4, 458754, 65536, 4, 458753, 0, 2, 393217, 262144, 1, 327681, 262144, 1, 262145, 262144, 1, 196609, 262144, 1, 131073, 262144, 1, 65537, 0, 0, 65538, 65536, 4, 65539, 65536, 4, 65540, 65536, 4, 65541, 65536, 4, 65542, 65536, 4, 65543, 65536, 4, 65544, 65536, 4, 65545, 65536, 4, 65546, 65536, 4, 65547, 65536, 4)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["UI"]]
 
@@ -22,9 +54,10 @@ visible = false
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_1dhmq")]
-position = Vector2(328, 395)
+position = Vector2(371, 494)
 
 [node name="BounceWall" type="StaticBody2D" parent="." groups=["BounceWall"]]
+visible = false
 position = Vector2(1859, 303)
 
 [node name="Sprite2D" type="Sprite2D" parent="BounceWall"]
@@ -57,4 +90,27 @@ position = Vector2(48.5, 132.5)
 shape = SubResource("RectangleShape2D_gyssb")
 
 [node name="Enemy" parent="." instance=ExtResource("4_cr3hb")]
-position = Vector2(1309, 245)
+position = Vector2(1321, 545)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(875, 545)
+
+[node name="Wall" type="StaticBody2D" parent="." groups=["None"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(892, 1098)
+shape = SubResource("RectangleShape2D_k2m5g")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
+position = Vector2(904, 57)
+shape = SubResource("RectangleShape2D_k2m5g")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Wall"]
+position = Vector2(53, 336)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_k2m5g")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Wall"]
+position = Vector2(1741, 372)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_k2m5g")

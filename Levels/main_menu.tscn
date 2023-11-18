@@ -1,10 +1,112 @@
-[gd_scene load_steps=4 format=3 uid="uid://drs0xtmvvh08m"]
+[gd_scene load_steps=11 format=3 uid="uid://drs0xtmvvh08m"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenu.gd" id="1_s8s0s"]
+[ext_resource type="Texture2D" uid="uid://ornkt6vqwcot" path="res://Graphics/MenuBackgroundBuildings.png" id="1_xbn36"]
 [ext_resource type="Script" path="res://Scripts/UI/LevelsSelector/LevelsSelector.gd" id="2_72fx4"]
+[ext_resource type="Texture2D" uid="uid://cc5xn7csq4ysd" path="res://Graphics/MenuBackgroundClouds.png" id="2_hv64b"]
 [ext_resource type="PackedScene" uid="uid://bk3ds2jqfeeci" path="res://Scripts/UI/LevelsSelector/level_button.tscn" id="3_0id4f"]
+[ext_resource type="Script" path="res://Scripts/MainMenuCamera.gd" id="6_8r0v4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yujl3"]
+bg_color = Color(0.196078, 0.2, 0.32549, 1)
+
+[sub_resource type="Animation" id="Animation_lerij"]
+resource_name = "new_animation"
+length = 24.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenuCamera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 12, 24),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1195, 541), Vector2(3100, 541), Vector2(-1195, 541)]
+}
+
+[sub_resource type="Animation" id="Animation_5i2c2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenuCamera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 540)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c8iup"]
+_data = {
+"RESET": SubResource("Animation_5i2c2"),
+"new_animation": SubResource("Animation_lerij")
+}
 
 [node name="MainMenu" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(5000, 5000)
+offset_left = -6898.0
+offset_top = -1911.0
+offset_right = 8150.0
+offset_bottom = 3089.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yujl3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(952, 823)
+scale = Vector2(16, 16)
+texture = ExtResource("1_xbn36")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-1096, 823)
+scale = Vector2(16, 16)
+texture = ExtResource("1_xbn36")
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+position = Vector2(-3144, 823)
+scale = Vector2(16, 16)
+texture = ExtResource("1_xbn36")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(3000, 823)
+scale = Vector2(16, 16)
+texture = ExtResource("1_xbn36")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(5047, 823)
+scale = Vector2(16, 16)
+texture = ExtResource("1_xbn36")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(971, 256)
+scale = Vector2(16, 16)
+texture = ExtResource("2_hv64b")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(-1077, 256)
+scale = Vector2(16, 16)
+texture = ExtResource("2_hv64b")
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+position = Vector2(-3125, 256)
+scale = Vector2(16, 16)
+texture = ExtResource("2_hv64b")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(3019, 256)
+scale = Vector2(16, 16)
+texture = ExtResource("2_hv64b")
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(5067, 256)
+scale = Vector2(16, 16)
+texture = ExtResource("2_hv64b")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -122,6 +224,15 @@ level_id = 1
 level_that_will_unlock = -1
 level_name = "Poziom 2"
 is_unlock = false
+
+[node name="MainMenuCamera" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+script = ExtResource("6_8r0v4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c8iup")
+}
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/Buttons/Grid/Play" to="CanvasLayer/MainMenu" method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/Buttons/Grid/Options" to="CanvasLayer/MainMenu" method="_on_options_pressed"]

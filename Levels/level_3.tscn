@@ -148,7 +148,6 @@ texture = ExtResource("7_co3rh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BounceWall2"]
 position = Vector2(47.1002, 127.676)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_gyssb")
 
 [node name="BounceWall3" type="StaticBody2D" parent="." groups=["BounceWall"]]
@@ -162,7 +161,6 @@ texture = ExtResource("8_6waia")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BounceWall3"]
 position = Vector2(47.6251, 376.662)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_mm7js")
 
 [node name="BounceWall4" type="StaticBody2D" parent="." groups=["BounceWall"]]
@@ -186,7 +184,6 @@ texture = ExtResource("7_co3rh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BounceWall4"]
 position = Vector2(47.6251, 252.662)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_u4av3")
 
 [node name="Enemy" parent="." instance=ExtResource("8_f72k2")]

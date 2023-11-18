@@ -10,6 +10,21 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yujl3"]
 bg_color = Color(0.196078, 0.2, 0.32549, 1)
 
+[sub_resource type="Animation" id="Animation_5i2c2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenuCamera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 540)]
+}
+
 [sub_resource type="Animation" id="Animation_lerij"]
 resource_name = "new_animation"
 length = 24.0
@@ -25,21 +40,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(-1195, 541), Vector2(3100, 541), Vector2(-1195, 541)]
-}
-
-[sub_resource type="Animation" id="Animation_5i2c2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MainMenuCamera:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(960, 540)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c8iup"]

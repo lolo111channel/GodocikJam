@@ -15,6 +15,7 @@ var is_win : bool = false
 
 var is_start_shooting : bool = false
 var a : bool = false
+var b : bool = false
 
 var current_pos : Vector2
 
@@ -75,10 +76,18 @@ func remove_ammo() -> void:
 		ammo_grid.get_children()[ammo_grid.get_child_count()-1].queue_free()
 
 func game_over() -> void:
-	if get_tree().get_nodes_in_group("Bullet").size() <= 0:
+	if get_tree().get_nodes_in_group("Bullet").size() <= 0 and !b:
 		if get_tree().get_nodes_in_group("Enemy").size() > 0:
 			get_tree().get_nodes_in_group("UI")[0].get_node("GameOver").visible = true
-
+			
+			$Sprite2D.play("death")
+			b = true
+	
+	if b:
+		if $Sprite2D.frame >= 5:
+			$Sprite2D.pause()
+	
+	
 func win() -> void:
 	if !is_win:
 		if get_tree().get_nodes_in_group("Enemy").size() <= 0:

@@ -15,6 +15,8 @@ func _on_main_menu_pressed():
 
 func _on_next_level_pressed():
 	if next_level_id != -1:
+		Global.current_level_id = next_level_id
+		Global.current_level_that_will_unlock = Global.levels[next_level_id].level_that_will_unlock
 		get_tree().change_scene_to_file(Global.levels[next_level_id].level_path)
 	else:
 		get_tree().change_scene_to_file("res://Levels/main_menu.tscn")

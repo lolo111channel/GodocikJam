@@ -12,7 +12,8 @@ func _ready() -> void:
 				Global.add_level({
 					is_unlock = i.is_unlock,
 					score = i.score,
-					level_path = i.level_path
+					level_path = i.level_path,
+					level_that_will_unlock = i.level_that_will_unlock
 				})
 	else:
 		var levels = get_tree().get_nodes_in_group("LevelButton")

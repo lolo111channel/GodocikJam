@@ -27,10 +27,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sx87b"]
-radius = 55.0
+radius = 59.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eantg"]
-radius = 62.0
+radius = 74.0
 
 [sub_resource type="Curve" id="Curve_8be7p"]
 min_value = -45.0

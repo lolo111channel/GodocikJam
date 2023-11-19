@@ -38,15 +38,18 @@ func _process(delta) -> void:
 		Global.current_level_id = level_id
 		Global.current_level_that_will_unlock = next_level_id
 		
+		Sounds.get_node("Click3").play()
 		get_tree().reload_current_scene()
 		
 		
 	if !is_win:
 		if ammo <= 0:
+			Sounds.get_node("Lose").play()
 			game_over()
 		
 		
 	if Input.is_action_just_pressed("esc"):
+		Sounds.get_node("Click2").play()
 		get_tree().change_scene_to_file("res://Levels/main_menu.tscn")
 		
 	if Input.is_action_just_pressed("shoot") and ammo > 0 and !is_win and !is_start_shooting:
@@ -54,6 +57,7 @@ func _process(delta) -> void:
 		is_start_shooting = true
 			
 		current_pos = get_global_mouse_position()
+		Sounds.get_node("./FireBallCast").play()
 			
 
 	if is_start_shooting and $Sprite2D.frame == 5 and !a:
@@ -64,9 +68,10 @@ func _process(delta) -> void:
 		get_parent().add_child(bullet)
 		remove_ammo()
 		add_line_2d(bullet)
-			
+		
 		a = true
-			
+		
+		
 	if $Sprite2D.frame >= 9 and is_start_shooting:
 		is_start_shooting = false
 			

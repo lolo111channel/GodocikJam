@@ -18,7 +18,7 @@ func action(wall_name : String) -> void:
 		"Enemy":
 			pass
 		"BounceWall":
-			pass
+			Sounds.get_node("MirrorHit").play()
 		_:
 			queue_free()
 	

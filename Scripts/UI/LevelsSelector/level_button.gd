@@ -25,4 +25,9 @@ func _on_button_pressed():
 		Global.current_level_id = level_id
 		Global.current_level_that_will_unlock = level_that_will_unlock
 		
+		Sounds.get_node("Click1").play()
+		
 		get_tree().change_scene_to_file(level_path)
+	
+	else:
+		Sounds.get_node("Click1").play()

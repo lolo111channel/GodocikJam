@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://drs0xtmvvh08m"]
+[gd_scene load_steps=18 format=3 uid="uid://drs0xtmvvh08m"]
 
 [ext_resource type="Texture2D" uid="uid://djtud2sksib85" path="res://Graphics/Rain.png" id="1_n7hvm"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenu.gd" id="1_s8s0s"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/MainMenuCamera.gd" id="6_8r0v4"]
 [ext_resource type="Script" path="res://Scripts/UI/Options/Options.gd" id="8_7oi4h"]
 [ext_resource type="Script" path="res://Scripts/UI/Credits/Credits.gd" id="9_km6f5"]
+[ext_resource type="AudioStream" uid="uid://dhhnyqii4xj2n" path="res://Music/soundscrate-moon-ride.wav" id="12_7tm1c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yujl3"]
 bg_color = Color(0.196078, 0.2, 0.32549, 1)
@@ -327,9 +328,16 @@ is_unlock = false
 layout_mode = 2
 level_path = "res://Levels/level_7.tscn"
 level_id = 6
-level_that_will_unlock = -1
+level_that_will_unlock = 7
 level_name = "Level 7"
 is_unlock = false
+
+[node name="Level8" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid" instance=ExtResource("3_0id4f")]
+layout_mode = 2
+level_path = "res://Levels/level_8.tscn"
+level_id = 7
+level_that_will_unlock = -1
+level_name = "Level 8"
 
 [node name="Options" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("main_menu")]
 visible = false
@@ -525,7 +533,7 @@ custom_minimum_size = Vector2(1920, 0)
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Credits/GridContainer/Creditsy"]
-custom_minimum_size = Vector2(800, 500)
+custom_minimum_size = Vector2(800, 525)
 layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Credits/GridContainer/Creditsy/Panel"]
@@ -567,6 +575,16 @@ lolo111Code
 KubaJaky"
 horizontal_alignment = 1
 
+[node name="Label7" type="Label" parent="CanvasLayer/Credits/GridContainer/Creditsy/Panel/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "
+Music and sounds come from this website:
+
+https://sfx.productioncrate.com/
+"
+horizontal_alignment = 1
+
 [node name="MainMenuCamera" type="Camera2D" parent="."]
 position = Vector2(960, 540)
 script = ExtResource("6_8r0v4")
@@ -575,6 +593,11 @@ script = ExtResource("6_8r0v4")
 libraries = {
 "": SubResource("AnimationLibrary_c8iup")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_7tm1c")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/Buttons/Grid/Play" to="CanvasLayer/MainMenu" method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/Buttons/Grid/Options" to="CanvasLayer/MainMenu" method="_on_options_pressed"]

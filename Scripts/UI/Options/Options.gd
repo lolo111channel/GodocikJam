@@ -14,8 +14,8 @@ extends Control
 
 
 func _ready() -> void:
-	sound_slider.value = Global.sound_volume * 100
 	music_slider.value = Global.music_volume * 100
+	sound_slider.value = Global.sound_volume * 100
 	
 	if Global.is_fullscreen_on:
 		button.text = "ON"
@@ -25,6 +25,9 @@ func _ready() -> void:
 	apply()
 
 func _process(delta) -> void:
+	apply()
+	
+	
 	music_text.text = "%s" % [music_slider.value]
 	sound_text.text = "%s" % [sound_slider.value]
 
@@ -33,6 +36,8 @@ func _on_back_pressed():
 	main_menu.visible = true
 	visible = false
 	apply()
+	
+	Sounds.get_node("Click1").play()
 
 
 
@@ -47,7 +52,7 @@ func apply():
 		linear_to_db(Global.music_volume)
 	)
 	
-	var bus_index2 = AudioServer.get_bus_index("Sounds")
+	var bus_index2 = AudioServer.get_bus_index("Sound")
 	AudioServer.set_bus_volume_db(
 		bus_index2,
 		linear_to_db(Global.sound_volume)
@@ -67,6 +72,8 @@ func _on_button_pressed():
 	elif !Global.is_fullscreen_on:
 		button.text = "ON"
 		Global.is_fullscreen_on = true
-		
+	
+	apply()
 	
 		
+

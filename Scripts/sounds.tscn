@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://fqr2acpj5kjq"]
+
+[ext_resource type="AudioStream" uid="uid://ddvvmd0adot0w" path="res://SFX/Click1.wav" id="1_uendc"]
+[ext_resource type="AudioStream" uid="uid://b662k06odqqe4" path="res://SFX/Click2.wav" id="2_qkhjw"]
+[ext_resource type="AudioStream" uid="uid://ij8dywn2g3pw" path="res://SFX/Click3.wav" id="3_jwtir"]
+[ext_resource type="AudioStream" uid="uid://bxfpsahre08qv" path="res://SFX/FireBallCast.wav" id="4_5713u"]
+[ext_resource type="AudioStream" uid="uid://53y41jxsf3i3" path="res://SFX/Lose.wav" id="5_62511"]
+[ext_resource type="AudioStream" uid="uid://d2w6t4sebej4x" path="res://SFX/MirrorHit.wav" id="6_mdcgr"]
+[ext_resource type="AudioStream" uid="uid://xorwvi6480b" path="res://SFX/Portal.wav" id="7_vn2tt"]
+[ext_resource type="AudioStream" uid="uid://bt6ujvwpb45se" path="res://SFX/Win.wav" id="8_dn6do"]
+
+[node name="Sounds" type="Node"]
+
+[node name="Click1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_uendc")
+bus = &"Sound"
+
+[node name="Click2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_qkhjw")
+bus = &"Sound"
+
+[node name="Click3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jwtir")
+bus = &"Sound"
+
+[node name="FireBallCast" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5713u")
+bus = &"Sound"
+
+[node name="Lose" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_62511")
+bus = &"Sound"
+
+[node name="MirrorHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_mdcgr")
+bus = &"Sound"
+
+[node name="Portal" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_vn2tt")
+bus = &"Sound"
+
+[node name="Win" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_dn6do")
+bus = &"Sound"

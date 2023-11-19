@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://drs0xtmvvh08m"]
+[gd_scene load_steps=17 format=3 uid="uid://drs0xtmvvh08m"]
 
 [ext_resource type="Texture2D" uid="uid://djtud2sksib85" path="res://Graphics/Rain.png" id="1_n7hvm"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenu.gd" id="1_s8s0s"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/LevelsSelector/LevelsSelector.gd" id="2_72fx4"]
 [ext_resource type="Texture2D" uid="uid://cc5xn7csq4ysd" path="res://Graphics/MenuBackgroundClouds.png" id="2_hv64b"]
 [ext_resource type="PackedScene" uid="uid://bk3ds2jqfeeci" path="res://Scripts/UI/LevelsSelector/level_button.tscn" id="3_0id4f"]
+[ext_resource type="Script" path="res://Scripts/Castle.gd" id="4_ls6a6"]
 [ext_resource type="Script" path="res://Scripts/MainMenuCamera.gd" id="6_8r0v4"]
 [ext_resource type="Script" path="res://Scripts/UI/Options/Options.gd" id="8_7oi4h"]
 [ext_resource type="Script" path="res://Scripts/UI/Credits/Credits.gd" id="9_km6f5"]
@@ -81,60 +82,98 @@ texture = ExtResource("1_n7hvm")
 lifetime = 1.5
 script = ExtResource("1_vvokh")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Castles" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Castles"]
 position = Vector2(952, 823)
 scale = Vector2(16, 16)
 texture = ExtResource("1_xbn36")
+script = ExtResource("4_ls6a6")
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
+[node name="Sprite2D3" type="Sprite2D" parent="Castles"]
 position = Vector2(-1096, 823)
 scale = Vector2(16, 16)
 texture = ExtResource("1_xbn36")
+script = ExtResource("4_ls6a6")
 
-[node name="Sprite2D9" type="Sprite2D" parent="."]
+[node name="Sprite2D9" type="Sprite2D" parent="Castles"]
 position = Vector2(-3144, 823)
 scale = Vector2(16, 16)
 texture = ExtResource("1_xbn36")
+script = ExtResource("4_ls6a6")
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
+[node name="Sprite2D4" type="Sprite2D" parent="Castles"]
 position = Vector2(3000, 823)
 scale = Vector2(16, 16)
 texture = ExtResource("1_xbn36")
+script = ExtResource("4_ls6a6")
 
-[node name="Sprite2D7" type="Sprite2D" parent="."]
+[node name="Sprite2D7" type="Sprite2D" parent="Castles"]
 position = Vector2(5047, 823)
 scale = Vector2(16, 16)
 texture = ExtResource("1_xbn36")
+script = ExtResource("4_ls6a6")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Sprite2D8" type="Sprite2D" parent="Castles"]
+position = Vector2(6918, 823)
+scale = Vector2(16, 16)
+texture = ExtResource("1_xbn36")
+
+[node name="Clouds" type="Node2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Clouds"]
 position = Vector2(971, 256)
 scale = Vector2(16, 16)
 texture = ExtResource("2_hv64b")
+script = ExtResource("4_ls6a6")
+movement_speed = 150.0
+x = -3125.0
+y = 7113.0
 
-[node name="Sprite2D5" type="Sprite2D" parent="."]
+[node name="Sprite2D5" type="Sprite2D" parent="Clouds"]
 position = Vector2(-1077, 256)
 scale = Vector2(16, 16)
 texture = ExtResource("2_hv64b")
+script = ExtResource("4_ls6a6")
+movement_speed = 150.0
+x = -3125.0
+y = 7113.0
 
-[node name="Sprite2D10" type="Sprite2D" parent="."]
+[node name="Sprite2D10" type="Sprite2D" parent="Clouds"]
 position = Vector2(-3125, 256)
 scale = Vector2(16, 16)
 texture = ExtResource("2_hv64b")
+script = ExtResource("4_ls6a6")
+movement_speed = 150.0
+x = -3125.0
+y = 7113.0
 
-[node name="Sprite2D6" type="Sprite2D" parent="."]
+[node name="Sprite2D6" type="Sprite2D" parent="Clouds"]
 position = Vector2(3019, 256)
 scale = Vector2(16, 16)
 texture = ExtResource("2_hv64b")
+script = ExtResource("4_ls6a6")
+movement_speed = 150.0
+x = -3125.0
+y = 7113.0
 
-[node name="Sprite2D8" type="Sprite2D" parent="."]
+[node name="Sprite2D8" type="Sprite2D" parent="Clouds"]
 position = Vector2(5067, 256)
+scale = Vector2(16, 16)
+texture = ExtResource("2_hv64b")
+script = ExtResource("4_ls6a6")
+movement_speed = 150.0
+x = -3125.0
+y = 7113.0
+
+[node name="Sprite2D9" type="Sprite2D" parent="Clouds"]
+position = Vector2(7113, 256)
 scale = Vector2(16, 16)
 texture = ExtResource("2_hv64b")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MainMenu" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("levels_selector", "options", "credits")]
-visible = false
 layout_mode = 3
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -431,6 +470,7 @@ theme_override_font_sizes/font_size = 30
 text = "ON"
 
 [node name="Credits" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("main_menu")]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

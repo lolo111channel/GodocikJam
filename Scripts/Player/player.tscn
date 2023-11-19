@@ -320,4 +320,5 @@ scale = Vector2(8, 8)
 texture = ExtResource("38_n5e85")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(66, 1)
 target_position = Vector2(2000, 0)

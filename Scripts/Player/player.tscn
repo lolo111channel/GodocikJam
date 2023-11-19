@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dawl00g8smvqm"]
+[gd_scene load_steps=43 format=3 uid="uid://dawl00g8smvqm"]
 
 [ext_resource type="Texture2D" uid="uid://b4gw1x0eclm6t" path="res://icon.svg" id="1_3acx4"]
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_l6e3u"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://cdikpav7vb3ar" path="res://Graphics/WizardAnimations/Idle/WizardIdle1Orb4.png" id="30_gb8k6"]
 [ext_resource type="Texture2D" uid="uid://dal53lixusye5" path="res://Graphics/Orb3.png" id="35_nw70m"]
 [ext_resource type="Texture2D" uid="uid://dukm6o1kutayh" path="res://Graphics/Orb2.png" id="37_hdu3q"]
+[ext_resource type="Texture2D" uid="uid://c4kjydxjbmw2j" path="res://Graphics/Cloud.png" id="38_n5e85"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ru4iu"]
 animations = [{
@@ -311,3 +312,8 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_h75xq")
 }
+
+[node name="Cloud" type="Sprite2D" parent="."]
+position = Vector2(-16, 149)
+scale = Vector2(8, 8)
+texture = ExtResource("38_n5e85")

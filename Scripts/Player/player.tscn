@@ -255,6 +255,7 @@ _data = {
 }
 
 [node name="Player" type="Node2D" groups=["Player"]]
+z_index = 1
 script = ExtResource("1_l6e3u")
 bullet_scene = ExtResource("2_xju5u")
 
@@ -317,3 +318,6 @@ libraries = {
 position = Vector2(-16, 149)
 scale = Vector2(8, 8)
 texture = ExtResource("38_n5e85")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(2000, 0)

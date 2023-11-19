@@ -22,7 +22,22 @@ var current_pos : Vector2
 var level_id : int = -1
 var next_level_id : int = -1
 
+
+var line2d_scene : PackedScene = load("res://Scripts/line_2d2.tscn") 
+var line2d : Line2D
+
 func _ready() -> void:
+	
+	line2d = line2d_scene.instantiate()
+	
+	line2d.global_position = Vector2(0,0)
+	line2d.add_point(Vector2(0,0))
+	line2d.add_point(Vector2(0,0))
+	
+	line2d.default_color = Color(1, 1, 1, 0.27450981736183)
+	
+	get_parent().call_deferred("add_child",line2d)
+	
 	$Sprite2D.play("default")
 	
 	level_id = Global.current_level_id
@@ -31,6 +46,10 @@ func _ready() -> void:
 	$AnimationPlayer.play("orbAnimation")
 	
 func _process(delta) -> void:
+	$RayCast2D.look_at(get_global_mouse_position())
+	
+	line2d.points[0] = $RayCast2D.global_position
+	line2d.points[1] = $RayCast2D.get_collision_point()
 	
 	win()
 	

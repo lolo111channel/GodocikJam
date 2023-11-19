@@ -22,6 +22,17 @@ func _ready() -> void:
 				i.is_unlock = Global.levels[i.level_id].is_unlock
 				i.score = Global.levels[i.level_id].score
 
+
+func _process(delta):
+	if Global.b:
+		visible = true
+		main_menu.visible = false
+		
+		Global.b = false
+
+
+
+
 func _on_back_pressed():
 	visible = false
 	main_menu.visible = true

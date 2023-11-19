@@ -10,7 +10,10 @@ var music_volume : float = 0.5
 var sound_volume : float = 0.5
 var is_fullscreen_on : bool = false
 
+var start : bool = false
+var end : bool = false
 
+var b : bool = false
 
 func add_level(x : Dictionary) -> void:
 	levels.append(x)
@@ -27,3 +30,6 @@ func finish(score : int) -> void:
 	
 	current_level_id = - 1
 	current_level_that_will_unlock = -1
+
+func OpenLevelSelector() -> void:
+	b =  true

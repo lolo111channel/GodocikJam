@@ -17,7 +17,8 @@ func _on_options_pressed():
 
 
 func _on_credits_pressed():
-	print("credits")
+	credits.visible= true
+	visible = false
 
 
 func _on_quit_pressed():

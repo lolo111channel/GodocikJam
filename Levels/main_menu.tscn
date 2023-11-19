@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://drs0xtmvvh08m"]
+[gd_scene load_steps=16 format=3 uid="uid://drs0xtmvvh08m"]
 
 [ext_resource type="Texture2D" uid="uid://djtud2sksib85" path="res://Graphics/Rain.png" id="1_n7hvm"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenu.gd" id="1_s8s0s"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bk3ds2jqfeeci" path="res://Scripts/UI/LevelsSelector/level_button.tscn" id="3_0id4f"]
 [ext_resource type="Script" path="res://Scripts/MainMenuCamera.gd" id="6_8r0v4"]
 [ext_resource type="Script" path="res://Scripts/UI/Options/Options.gd" id="8_7oi4h"]
+[ext_resource type="Script" path="res://Scripts/UI/Credits/Credits.gd" id="9_km6f5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yujl3"]
 bg_color = Color(0.196078, 0.2, 0.32549, 1)
@@ -132,7 +133,8 @@ texture = ExtResource("2_hv64b")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="MainMenu" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("levels_selector", "options")]
+[node name="MainMenu" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("levels_selector", "options", "credits")]
+visible = false
 layout_mode = 3
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -141,6 +143,7 @@ grow_vertical = 2
 script = ExtResource("1_s8s0s")
 levels_selector = NodePath("../LevelsSelector")
 options = NodePath("../Options")
+credits = NodePath("../Credits")
 
 [node name="GameTitle" type="Label" parent="CanvasLayer/MainMenu"]
 layout_mode = 0
@@ -293,7 +296,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Options/GridContainer"]
-custom_minimum_size = Vector2(550, 120)
+custom_minimum_size = Vector2(275, 120)
 layout_mode = 2
 size_flags_horizontal = 0
 
@@ -427,6 +430,87 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "ON"
 
+[node name="Credits" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("main_menu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_km6f5")
+main_menu = NodePath("../MainMenu")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Credits/GridContainer"]
+custom_minimum_size = Vector2(275, 120)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Credits/GridContainer/CenterContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Back" type="Button" parent="CanvasLayer/Credits/GridContainer/CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="Creditsy" type="CenterContainer" parent="CanvasLayer/Credits/GridContainer"]
+custom_minimum_size = Vector2(1920, 0)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Credits/GridContainer/Creditsy"]
+custom_minimum_size = Vector2(800, 500)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Credits/GridContainer/Creditsy/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Credits/GridContainer/Creditsy/Panel/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Credits/GridContainer/Creditsy/Panel/CenterContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/Credits/GridContainer/Creditsy/Panel/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Thanks for playing"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="CanvasLayer/Credits/GridContainer/Creditsy/Panel/CenterContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="CanvasLayer/Credits/GridContainer/Creditsy/Panel/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "The game was made on \"Godocikowy Jam\"."
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="CanvasLayer/Credits/GridContainer/Creditsy/Panel/CenterContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="CanvasLayer/Credits/GridContainer/Creditsy/Panel/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Authors:
+
+lolo111Code
+KubaJaky"
+horizontal_alignment = 1
+
 [node name="MainMenuCamera" type="Camera2D" parent="."]
 position = Vector2(960, 540)
 script = ExtResource("6_8r0v4")
@@ -443,3 +527,4 @@ libraries = {
 [connection signal="pressed" from="CanvasLayer/LevelsSelector/GridContainer/CenterContainer/Back" to="CanvasLayer/LevelsSelector" method="_on_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Options/GridContainer/CenterContainer/GridContainer/Back" to="CanvasLayer/Options" method="_on_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Options/GridContainer/Options/Grid/CenterContainer/Button" to="CanvasLayer/Options" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Credits/GridContainer/CenterContainer/GridContainer/Back" to="CanvasLayer/Credits" method="_on_back_pressed"]

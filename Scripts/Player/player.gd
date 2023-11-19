@@ -19,25 +19,31 @@ var b : bool = false
 
 var current_pos : Vector2
 
+var level_id : int = -1
+var next_level_id : int = -1
+
 func _ready() -> void:
 	$Sprite2D.play("default")
+	
+	level_id = Global.current_level_id
+	next_level_id = Global.current_level_that_will_unlock
 
-
-func _physics_process(delta) -> void:
-	#if ammo > 0:
-		#$Point.look_at(get_global_mouse_position())
-	pass
 	
 func _process(delta) -> void:
 	
 	win()
 	
+	if Input.is_action_just_pressed("reset"):
+		Global.current_level_id = level_id
+		Global.current_level_that_will_unlock = next_level_id
+		
+		get_tree().reload_current_scene()
+		
+		
 	if !is_win:
 		if ammo <= 0:
 			game_over()
 		
-		if Input.is_action_just_pressed("reset"):
-			get_tree().reload_current_scene()
 		
 		if Input.is_action_just_pressed("esc"):
 			get_tree().change_scene_to_file("res://Levels/main_menu.tscn")

@@ -23,7 +23,7 @@ grow_horizontal = 2
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="CenterContainer/GridContainer"]
-custom_minimum_size = Vector2(700, 300)
+custom_minimum_size = Vector2(700, 320)
 layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/GridContainer/Panel"]
@@ -36,17 +36,20 @@ grow_horizontal = 2
 [node name="GridContainer" type="GridContainer" parent="CenterContainer/GridContainer/Panel/CenterContainer"]
 layout_mode = 2
 
+[node name="Label3" type="Label" parent="CenterContainer/GridContainer/Panel/CenterContainer/GridContainer"]
+layout_mode = 2
+
 [node name="Label" type="Label" parent="CenterContainer/GridContainer/Panel/CenterContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 61
-text = "Wygrałeś"
+text = "You win"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="CenterContainer/GridContainer/Panel/CenterContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "Twój wynik
+text = "Your score:
 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -93,14 +96,14 @@ custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 35
-text = "Menu Główne"
+text = "Main Menu"
 
 [node name="NextLevel" type="Button" parent="CenterContainer/GridContainer/CenterContainer/GridContainer"]
 custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 35
-text = "Następny Poziom"
+text = "Next Level"
 
 [connection signal="pressed" from="CenterContainer/GridContainer/CenterContainer/GridContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/CenterContainer/GridContainer/NextLevel" to="." method="_on_next_level_pressed"]

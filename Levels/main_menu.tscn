@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://drs0xtmvvh08m"]
+[gd_scene load_steps=15 format=3 uid="uid://drs0xtmvvh08m"]
 
 [ext_resource type="Texture2D" uid="uid://djtud2sksib85" path="res://Graphics/Rain.png" id="1_n7hvm"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/MainMenu.gd" id="1_s8s0s"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cc5xn7csq4ysd" path="res://Graphics/MenuBackgroundClouds.png" id="2_hv64b"]
 [ext_resource type="PackedScene" uid="uid://bk3ds2jqfeeci" path="res://Scripts/UI/LevelsSelector/level_button.tscn" id="3_0id4f"]
 [ext_resource type="Script" path="res://Scripts/MainMenuCamera.gd" id="6_8r0v4"]
+[ext_resource type="Script" path="res://Scripts/UI/Options/Options.gd" id="8_7oi4h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yujl3"]
 bg_color = Color(0.196078, 0.2, 0.32549, 1)
@@ -131,7 +132,7 @@ texture = ExtResource("2_hv64b")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="MainMenu" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("levels_selector")]
+[node name="MainMenu" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("levels_selector", "options")]
 layout_mode = 3
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -139,6 +140,7 @@ offset_right = 431.0
 grow_vertical = 2
 script = ExtResource("1_s8s0s")
 levels_selector = NodePath("../LevelsSelector")
+options = NodePath("../Options")
 
 [node name="GameTitle" type="Label" parent="CanvasLayer/MainMenu"]
 layout_mode = 0
@@ -167,7 +169,7 @@ custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 30
-text = "Graj
+text = "Play
 "
 
 [node name="Options" type="Button" parent="CanvasLayer/MainMenu/Buttons/Grid"]
@@ -175,15 +177,14 @@ custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 30
-text = "Opcje
-"
+text = "Options"
 
 [node name="Credits" type="Button" parent="CanvasLayer/MainMenu/Buttons/Grid"]
 custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 30
-text = "Autorzy
+text = "Credits
 "
 
 [node name="Quit" type="Button" parent="CanvasLayer/MainMenu/Buttons/Grid"]
@@ -191,7 +192,8 @@ custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 30
-text = "Wyjdź"
+text = "Quit
+"
 
 [node name="LevelsSelector" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("main_menu")]
 visible = false
@@ -222,7 +224,7 @@ custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 30
-text = "Wróć"
+text = "Back"
 
 [node name="Levels" type="CenterContainer" parent="CanvasLayer/LevelsSelector/GridContainer"]
 custom_minimum_size = Vector2(1920, 0)
@@ -237,13 +239,14 @@ columns = 5
 [node name="Level" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid" instance=ExtResource("3_0id4f")]
 layout_mode = 2
 level_path = "res://Levels/level_1.tscn"
+level_name = "Level 1"
 
 [node name="Level2" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid" instance=ExtResource("3_0id4f")]
 layout_mode = 2
 level_path = "res://Levels/level_2.tscn"
 level_id = 1
 level_that_will_unlock = 2
-level_name = "Poziom 2"
+level_name = "Level 2"
 is_unlock = false
 
 [node name="Level3" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid" instance=ExtResource("3_0id4f")]
@@ -251,7 +254,7 @@ layout_mode = 2
 level_path = "res://Levels/level_3.tscn"
 level_id = 2
 level_that_will_unlock = 3
-level_name = "Poziom 3"
+level_name = "Level 3"
 is_unlock = false
 
 [node name="Level4" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid" instance=ExtResource("3_0id4f")]
@@ -259,7 +262,7 @@ layout_mode = 2
 level_path = "res://Levels/level_4.tscn"
 level_id = 3
 level_that_will_unlock = 4
-level_name = "Poziom 4"
+level_name = "Level 4"
 is_unlock = false
 
 [node name="Level5" parent="CanvasLayer/LevelsSelector/GridContainer/Levels/Grid" instance=ExtResource("3_0id4f")]
@@ -267,8 +270,162 @@ layout_mode = 2
 level_path = "res://Levels/level_5.tscn"
 level_id = 4
 level_that_will_unlock = -1
-level_name = "Poziom 5"
+level_name = "Level 5"
 is_unlock = false
+
+[node name="Options" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("main_menu")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_7oi4h")
+main_menu = NodePath("../MainMenu")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Options/GridContainer"]
+custom_minimum_size = Vector2(550, 120)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Options/GridContainer/CenterContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Back" type="Button" parent="CanvasLayer/Options/GridContainer/CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="Options" type="CenterContainer" parent="CanvasLayer/Options/GridContainer"]
+custom_minimum_size = Vector2(1920, 0)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/Options/GridContainer/Options"]
+layout_mode = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 2
+
+[node name="MusicVolumeText" type="Panel" parent="CanvasLayer/Options/GridContainer/Options/Grid"]
+custom_minimum_size = Vector2(800, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Options/GridContainer/Options/Grid/MusicVolumeText"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "Music Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicVolumeSlider" type="Panel" parent="CanvasLayer/Options/GridContainer/Options/Grid"]
+custom_minimum_size = Vector2(800, 150)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Options/GridContainer/Options/Grid/MusicVolumeSlider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Options/GridContainer/Options/Grid/MusicVolumeSlider/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Options/GridContainer/Options/Grid/MusicVolumeSlider/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="HSlider" parent="CanvasLayer/Options/GridContainer/Options/Grid/MusicVolumeSlider/CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(750, 43.155)
+layout_mode = 2
+
+[node name="SoundVolumeText" type="Panel" parent="CanvasLayer/Options/GridContainer/Options/Grid"]
+custom_minimum_size = Vector2(800, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Options/GridContainer/Options/Grid/SoundVolumeText"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "Sound Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoundVolumeSlider" type="Panel" parent="CanvasLayer/Options/GridContainer/Options/Grid"]
+custom_minimum_size = Vector2(800, 150)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Options/GridContainer/Options/Grid/SoundVolumeSlider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Options/GridContainer/Options/Grid/SoundVolumeSlider/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Options/GridContainer/Options/Grid/SoundVolumeSlider/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sounds" type="HSlider" parent="CanvasLayer/Options/GridContainer/Options/Grid/SoundVolumeSlider/CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(750, 43.155)
+layout_mode = 2
+
+[node name="FulscreenText" type="Panel" parent="CanvasLayer/Options/GridContainer/Options/Grid"]
+custom_minimum_size = Vector2(800, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Options/GridContainer/Options/Grid/FulscreenText"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "Fullscreen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Options/GridContainer/Options/Grid"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Options/GridContainer/Options/Grid/CenterContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "ON"
 
 [node name="MainMenuCamera" type="Camera2D" parent="."]
 position = Vector2(960, 540)
@@ -284,3 +441,5 @@ libraries = {
 [connection signal="pressed" from="CanvasLayer/MainMenu/Buttons/Grid/Credits" to="CanvasLayer/MainMenu" method="_on_credits_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/Buttons/Grid/Quit" to="CanvasLayer/MainMenu" method="_on_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/LevelsSelector/GridContainer/CenterContainer/Back" to="CanvasLayer/LevelsSelector" method="_on_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/Options/GridContainer/CenterContainer/GridContainer/Back" to="CanvasLayer/Options" method="_on_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/Options/GridContainer/Options/Grid/CenterContainer/Button" to="CanvasLayer/Options" method="_on_button_pressed"]

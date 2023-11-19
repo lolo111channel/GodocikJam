@@ -288,6 +288,7 @@ position = Vector2(875, 545)
 zoom = Vector2(0.8, 0.8)
 
 [node name="Wall" type="StaticBody2D" parent="." groups=["None"]]
+visible = false
 position = Vector2(-396, 96)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]

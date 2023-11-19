@@ -5,6 +5,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 12.0
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -20,7 +22,7 @@ custom_minimum_size = Vector2(1920, 100)
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="GridContainer/CenterContainer"]
-custom_minimum_size = Vector2(350, 100)
+custom_minimum_size = Vector2(420, 100)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="GridContainer/CenterContainer/Panel"]
@@ -31,7 +33,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 61
-text = "Przegrałeś"
+text = "You lost"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -45,7 +47,7 @@ theme_override_constants/h_separation = 115
 columns = 2
 
 [node name="Panel" type="Panel" parent="GridContainer/CenterContainer2/GridContainer"]
-custom_minimum_size = Vector2(250, 100)
+custom_minimum_size = Vector2(380, 100)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="GridContainer/CenterContainer2/GridContainer/Panel"]
@@ -61,7 +63,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel2" type="Panel" parent="GridContainer/CenterContainer2/GridContainer"]
-custom_minimum_size = Vector2(250, 100)
+custom_minimum_size = Vector2(380, 100)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="GridContainer/CenterContainer2/GridContainer/Panel2"]

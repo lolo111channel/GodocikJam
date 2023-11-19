@@ -1,6 +1,8 @@
 extends Control
 
 @export var levels_selector : Control
+@export var options : Control
+@export var credits : Control
 
 func _on_play_pressed():
 	levels_selector.visible = true
@@ -8,7 +10,10 @@ func _on_play_pressed():
 
 
 func _on_options_pressed():
-	print("options")
+	options.visible = true
+	visible = false
+	
+	options._ready()
 
 
 func _on_credits_pressed():

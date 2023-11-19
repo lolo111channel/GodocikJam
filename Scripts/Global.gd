@@ -6,6 +6,11 @@ var levels : Array[Dictionary] = [
 
 ]
 
+var music_volume : float = 0.5
+var sound_volume : float = 0.5
+var is_fullscreen_on : bool = false
+
+
 
 func add_level(x : Dictionary) -> void:
 	levels.append(x)

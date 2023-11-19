@@ -15,7 +15,7 @@ func _process(delta) -> void:
 			$Grid/Center/Grid.get_children()[i].visible = true
 		
 	else:
-		$Grid/LevelName/Label.text = "Zablokowany"
+		$Grid/LevelName/Label.text = "Lock"
 		
 		for i in $Grid/Center/Grid.get_children():
 			i.visible = false

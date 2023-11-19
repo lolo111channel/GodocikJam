@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://7bdr268v62ct" path="res://Graphics/MirrorMiddle.png" id="6_v12wt"]
 [ext_resource type="Texture2D" uid="uid://cyicbxab7swa3" path="res://Graphics/MirrorBottom.png" id="7_co3rh"]
 [ext_resource type="Texture2D" uid="uid://hrwkmeq53fuj" path="res://Graphics/Mirror.png" id="8_6waia"]
-[ext_resource type="PackedScene" path="res://Scripts/Enemy/enemy2.tscn" id="9_htoos"]
+[ext_resource type="PackedScene" uid="uid://rj1dl2t342lt" path="res://Scripts/Enemy/enemy2.tscn" id="9_htoos"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqy8o"]
 texture = ExtResource("1_2k8cb")
@@ -56,7 +56,7 @@ size = Vector2(120.5, 525.119)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blnb2"]
 size = Vector2(150, 254.999)
 
-[node name="Level2" type="Node2D"]
+[node name="Level3" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(8, 8)

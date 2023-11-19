@@ -63,18 +63,21 @@ theme_override_constants/h_separation = 15
 columns = 3
 
 [node name="0" type="TextureRect" parent="CenterContainer/GridContainer/Panel/CenterContainer/GridContainer/CenterContainer/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("2_wjqp1")
 expand_mode = 1
 
 [node name="1" type="TextureRect" parent="CenterContainer/GridContainer/Panel/CenterContainer/GridContainer/CenterContainer/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("2_wjqp1")
 expand_mode = 1
 
 [node name="2" type="TextureRect" parent="CenterContainer/GridContainer/Panel/CenterContainer/GridContainer/CenterContainer/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("2_wjqp1")

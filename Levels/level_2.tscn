@@ -35,7 +35,7 @@ sources/0 = SubResource("TileSetAtlasSource_eqy8o")
 size = Vector2(46.5, 631)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2m5g"]
-size = Vector2(3599, 397)
+size = Vector2(3599, 357.75)
 
 [node name="Level2" type="Node2D"]
 
@@ -127,15 +127,14 @@ position = Vector2(875, 545)
 zoom = Vector2(0.8, 0.8)
 
 [node name="Wall" type="StaticBody2D" parent="." groups=["None"]]
-visible = false
 position = Vector2(-396, 96)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-position = Vector2(1119.5, 1127)
+position = Vector2(1119.5, 1135.88)
 shape = SubResource("RectangleShape2D_k2m5g")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
-position = Vector2(1501, -172)
+position = Vector2(1501, -182.75)
 shape = SubResource("RectangleShape2D_k2m5g")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Wall"]

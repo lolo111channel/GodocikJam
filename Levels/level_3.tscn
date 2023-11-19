@@ -39,22 +39,22 @@ size = Vector2(46.5, 910)
 size = Vector2(34.3003, 641.294)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm7js"]
-size = Vector2(33.2504, 143.324)
+size = Vector2(33.2504, 134.324)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4av3"]
 size = Vector2(33.2504, 391.324)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2m5g"]
-size = Vector2(3599, 397)
+size = Vector2(3599, 345.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h30vq"]
-size = Vector2(3599, 642.5)
+size = Vector2(3586.5, 642.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nphvg"]
-size = Vector2(120.5, 525.119)
+size = Vector2(102, 525.119)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blnb2"]
-size = Vector2(150, 254.999)
+size = Vector2(123, 232)
 
 [node name="Level3" type="Node2D"]
 
@@ -160,7 +160,7 @@ scale = Vector2(8, 8)
 texture = ExtResource("8_6waia")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BounceWall3"]
-position = Vector2(47.6251, 376.662)
+position = Vector2(47.6251, 381.162)
 shape = SubResource("RectangleShape2D_mm7js")
 
 [node name="BounceWall4" type="StaticBody2D" parent="." groups=["BounceWall"]]
@@ -191,11 +191,10 @@ position = Vector2(875, 545)
 zoom = Vector2(0.8, 0.8)
 
 [node name="Wall" type="StaticBody2D" parent="." groups=["None"]]
-visible = false
 position = Vector2(-396, 96)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-position = Vector2(1119.5, 1127)
+position = Vector2(1119.5, 1152.75)
 shape = SubResource("RectangleShape2D_k2m5g")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
@@ -213,17 +212,17 @@ rotation = 1.57079
 shape = SubResource("RectangleShape2D_k2m5g")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Wall"]
-position = Vector2(1355.75, 2605)
+position = Vector2(1355.75, 2611.25)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_h30vq")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Wall"]
-position = Vector2(515.44, 353)
+position = Vector2(515.44, 355)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_nphvg")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Wall"]
-position = Vector2(1544.5, 93.9999)
+position = Vector2(1556, 80.4998)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_blnb2")
 

@@ -54,16 +54,11 @@ func _process(delta) -> void:
 	win()
 	
 	if Input.is_action_just_pressed("reset"):
-		Global.current_level_id = level_id
-		Global.current_level_that_will_unlock = next_level_id
-		
-		Sounds.get_node("Click3").play()
-		get_tree().reload_current_scene()
+		reset()
 		
 		
 	if !is_win:
 		if ammo <= 0:
-			Sounds.get_node("Lose").play()
 			game_over()
 		
 		
@@ -117,6 +112,8 @@ func remove_ammo() -> void:
 func game_over() -> void:
 	if get_tree().get_nodes_in_group("Bullet").size() <= 0 and !b:
 		if get_tree().get_nodes_in_group("Enemy").size() > 0:
+			Sounds.get_node("Lose").play()
+			
 			get_tree().get_nodes_in_group("UI")[0].get_node("GameOver").visible = true
 			
 			$Sprite2D.play("death")
@@ -152,3 +149,9 @@ func add_line_2d(object : Node2D) -> void:
 	get_parent().add_child(bullet_path)
 	
 
+func reset() -> void:
+	Global.current_level_id = level_id
+	Global.current_level_that_will_unlock = next_level_id
+		
+	Sounds.get_node("Click3").play()
+	get_tree().reload_current_scene()

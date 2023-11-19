@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bk3ds2jqfeeci"]
 
-[ext_resource type="Texture2D" uid="uid://b4gw1x0eclm6t" path="res://icon.svg" id="1_rkbss"]
 [ext_resource type="Script" path="res://Scripts/UI/LevelsSelector/level_button.gd" id="1_tht85"]
+[ext_resource type="Texture2D" uid="uid://dukm6o1kutayh" path="res://Graphics/Orb2.png" id="2_fvbrn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_34qqp"]
 
@@ -53,21 +53,21 @@ columns = 3
 visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-texture = ExtResource("1_rkbss")
+texture = ExtResource("2_fvbrn")
 expand_mode = 1
 
 [node name="1" type="TextureRect" parent="Grid/Center/Grid"]
 visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-texture = ExtResource("1_rkbss")
+texture = ExtResource("2_fvbrn")
 expand_mode = 1
 
 [node name="2" type="TextureRect" parent="Grid/Center/Grid"]
 visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-texture = ExtResource("1_rkbss")
+texture = ExtResource("2_fvbrn")
 expand_mode = 1
 
 [node name="Button" type="Button" parent="."]

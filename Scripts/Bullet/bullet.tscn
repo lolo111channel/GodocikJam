@@ -30,7 +30,7 @@ animations = [{
 radius = 59.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eantg"]
-radius = 74.0
+radius = 61.5224
 
 [sub_resource type="Curve" id="Curve_8be7p"]
 min_value = -45.0

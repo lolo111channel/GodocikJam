@@ -88,8 +88,8 @@ layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="CenterContainer/GridContainer/CenterContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 200
-columns = 2
+theme_override_constants/h_separation = 15
+columns = 3
 
 [node name="MainMenu" type="Button" parent="CenterContainer/GridContainer/CenterContainer/GridContainer"]
 custom_minimum_size = Vector2(350, 100)
@@ -97,6 +97,14 @@ layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 35
 text = "Main Menu"
+
+[node name="Reset" type="Button" parent="CenterContainer/GridContainer/CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 35
+text = "Reset
+"
 
 [node name="NextLevel" type="Button" parent="CenterContainer/GridContainer/CenterContainer/GridContainer"]
 custom_minimum_size = Vector2(350, 100)
@@ -106,4 +114,5 @@ theme_override_font_sizes/font_size = 35
 text = "Next Level"
 
 [connection signal="pressed" from="CenterContainer/GridContainer/CenterContainer/GridContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/CenterContainer/GridContainer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/CenterContainer/GridContainer/NextLevel" to="." method="_on_next_level_pressed"]

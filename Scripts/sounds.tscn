@@ -14,30 +14,38 @@
 [node name="Click1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_uendc")
 volume_db = 5.0
+bus = &"Sound"
 
 [node name="Click2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_qkhjw")
 volume_db = 10.0
+bus = &"Sound"
 
 [node name="Click3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_jwtir")
 volume_db = 5.0
+bus = &"Sound"
 
 [node name="FireBallCast" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_5713u")
 volume_db = 10.0
+bus = &"Sound"
 
 [node name="Lose" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_62511")
 volume_db = 5.0
+bus = &"Sound"
 
 [node name="MirrorHit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_mdcgr")
+bus = &"Sound"
 
 [node name="Portal" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_vn2tt")
 volume_db = -2.5
+bus = &"Sound"
 
 [node name="Win" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_dn6do")
 volume_db = 5.0
+bus = &"Sound"

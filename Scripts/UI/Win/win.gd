@@ -24,3 +24,7 @@ func _on_next_level_pressed():
 		get_tree().change_scene_to_file(Global.levels[next_level_id].level_path)
 	else:
 		get_tree().change_scene_to_file("res://Levels/main_menu.tscn")
+
+
+func _on_reset_pressed():
+	get_tree().get_first_node_in_group("Player").reset()

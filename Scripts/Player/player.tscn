@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dawl00g8smvqm"]
+[gd_scene load_steps=37 format=3 uid="uid://dawl00g8smvqm"]
 
 [ext_resource type="Texture2D" uid="uid://b4gw1x0eclm6t" path="res://icon.svg" id="1_3acx4"]
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_l6e3u"]
@@ -23,6 +23,18 @@
 [ext_resource type="Texture2D" uid="uid://c82oll8hwqind" path="res://Graphics/WizardAnimations/WizardDeath4.png" id="16_3ymer"]
 [ext_resource type="Texture2D" uid="uid://dhjcivw1174mt" path="res://Graphics/WizardAnimations/WizardDeath5.png" id="17_ayhxh"]
 [ext_resource type="Texture2D" uid="uid://b63t8eldy0vj6" path="res://Graphics/WizardAnimations/WizardDeath6.png" id="18_p1tb8"]
+[ext_resource type="Texture2D" uid="uid://ba568mb67t5d0" path="res://Graphics/WizardAnimations/Idle/WizardIdle3Orb1.png" id="19_f2y8w"]
+[ext_resource type="Texture2D" uid="uid://oqcw3kn5b0n2" path="res://Graphics/WizardAnimations/Idle/WizardIdle3Orb2.png" id="20_vg7bp"]
+[ext_resource type="Texture2D" uid="uid://bwpp0tec76qgr" path="res://Graphics/WizardAnimations/Idle/WizardIdle3Orb3.png" id="21_m2mgn"]
+[ext_resource type="Texture2D" uid="uid://jhdccklc5gpu" path="res://Graphics/WizardAnimations/Idle/WizardIdle3Orb4.png" id="22_n326h"]
+[ext_resource type="Texture2D" uid="uid://ck7t41xgvsex8" path="res://Graphics/WizardAnimations/Idle/WizardIdle2Orb1.png" id="23_fsxl8"]
+[ext_resource type="Texture2D" uid="uid://dpu56uvwey5nb" path="res://Graphics/WizardAnimations/Idle/WizardIdle2Orb2.png" id="24_l61xt"]
+[ext_resource type="Texture2D" uid="uid://ciaj06rnq8ujg" path="res://Graphics/WizardAnimations/Idle/WizardIdle2Orb3.png" id="25_trbjn"]
+[ext_resource type="Texture2D" uid="uid://cberioeb6oqbf" path="res://Graphics/WizardAnimations/Idle/WizardIdle2Orb4.png" id="26_gxq61"]
+[ext_resource type="Texture2D" uid="uid://bov5qyb2u15d6" path="res://Graphics/WizardAnimations/Idle/WizardIdle1Orb1.png" id="27_qdqxq"]
+[ext_resource type="Texture2D" uid="uid://yjwo51ac8hum" path="res://Graphics/WizardAnimations/Idle/WizardIdle1Orb2.png" id="28_tlnts"]
+[ext_resource type="Texture2D" uid="uid://c7e8o11hnffrv" path="res://Graphics/WizardAnimations/Idle/WizardIdle1Orb3.png" id="29_k6a20"]
+[ext_resource type="Texture2D" uid="uid://cdikpav7vb3ar" path="res://Graphics/WizardAnimations/Idle/WizardIdle1Orb4.png" id="30_gb8k6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ru4iu"]
 animations = [{
@@ -86,6 +98,57 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("19_f2y8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_vg7bp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_m2mgn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_n326h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_fsxl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_l61xt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_trbjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_gxq61")
+}],
+"loop": true,
+"name": &"default2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_qdqxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_tlnts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_k6a20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_gb8k6")
+}],
+"loop": true,
+"name": &"default3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_de2ru")
 }, {
 "duration": 1.0,
@@ -98,7 +161,7 @@ animations = [{
 "texture": ExtResource("6_qmt7x")
 }],
 "loop": true,
-"name": &"default",
+"name": &"default4",
 "speed": 5.0
 }]
 
@@ -110,7 +173,7 @@ bullet_scene = ExtResource("2_xju5u")
 position = Vector2(-1, -1)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_ru4iu")
-animation = &"death"
+animation = &"default4"
 
 [node name="Point" type="Node2D" parent="."]
 
@@ -144,3 +207,11 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("1_3acx4")
 expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 287.0
+offset_top = 49.0
+offset_right = 620.0
+offset_bottom = 113.0
+text = "R - Reset  LPM - Shoot"
+vertical_alignment = 1

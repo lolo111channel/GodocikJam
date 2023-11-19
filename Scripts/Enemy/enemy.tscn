@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://df7s4lbgjl2f8" path="res://Graphics/TargetShield.png" id="2_poxbt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5owj"]
-radius = 61.2944
+radius = 68.0074
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8hytd"]
 radius = 76.1052

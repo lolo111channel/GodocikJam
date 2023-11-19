@@ -213,5 +213,6 @@ offset_left = 287.0
 offset_top = 49.0
 offset_right = 620.0
 offset_bottom = 113.0
+theme_override_font_sizes/font_size = 25
 text = "R - Reset  LPM - Shoot"
 vertical_alignment = 1

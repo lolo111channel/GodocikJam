@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://4165fpxko8fm"]
+[gd_scene load_steps=26 format=3 uid="uid://4165fpxko8fm"]
 
 [ext_resource type="Texture2D" uid="uid://edcyd53huhkk" path="res://Graphics/WallAtlas.png" id="1_d5326"]
 [ext_resource type="PackedScene" uid="uid://d0oscsv4gu6c3" path="res://Scripts/UI/GameOver/game_over.tscn" id="2_kuc8r"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://7bdr268v62ct" path="res://Graphics/MirrorMiddle.png" id="6_87jnx"]
 [ext_resource type="Texture2D" uid="uid://cyicbxab7swa3" path="res://Graphics/MirrorBottom.png" id="7_v2lxv"]
 [ext_resource type="Texture2D" uid="uid://hrwkmeq53fuj" path="res://Graphics/Mirror.png" id="8_jpod7"]
-[ext_resource type="PackedScene" uid="uid://dgpbddkqombrf" path="res://Scripts/Enemy/enemy.tscn" id="9_dnri4"]
+[ext_resource type="PackedScene" uid="uid://rj1dl2t342lt" path="res://Scripts/Enemy/enemy2.tscn" id="9_dvxul"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqy8o"]
 texture = ExtResource("1_d5326")
@@ -44,6 +44,12 @@ size = Vector2(33.2504, 636)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4av3"]
 size = Vector2(33.2504, 391.324)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt2w3"]
+size = Vector2(33.2504, 250.324)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1hsm"]
+size = Vector2(33.2504, 508.324)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tr07t"]
 size = Vector2(33.2504, 391.324)
 
@@ -60,7 +66,7 @@ size = Vector2(143.25, 116.01)
 size = Vector2(126, 885)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmlxp"]
-size = Vector2(257.002, 121)
+size = Vector2(245.002, 92)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ac0lx"]
 size = Vector2(386.501, 136.5)
@@ -303,16 +309,38 @@ texture = ExtResource("7_v2lxv")
 position = Vector2(47.6251, 252.662)
 shape = SubResource("RectangleShape2D_u4av3")
 
+[node name="BounceWall11" type="StaticBody2D" parent="." groups=["BounceWall"]]
+position = Vector2(1341, 199)
+
+[node name="Sprite2D" type="Sprite2D" parent="BounceWall11"]
+position = Vector2(-3, 256)
+scale = Vector2(8, 8)
+texture = ExtResource("5_rs058")
+
+[node name="Sprite2D5" type="Sprite2D" parent="BounceWall11"]
+position = Vector2(-3, 384)
+scale = Vector2(8, 8)
+texture = ExtResource("7_v2lxv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceWall11"]
+position = Vector2(47.6251, 323.162)
+shape = SubResource("RectangleShape2D_kt2w3")
+
 [node name="BounceWall7" type="StaticBody2D" parent="." groups=["BounceWall"]]
-position = Vector2(1180, 185)
+position = Vector2(1249, 186)
 rotation = -1.5708
 
 [node name="Sprite2D" type="Sprite2D" parent="BounceWall7"]
-position = Vector2(-3, 128)
+position = Vector2(-2.99998, -0.00012207)
 scale = Vector2(8, 8)
 texture = ExtResource("5_rs058")
 
 [node name="Sprite2D4" type="Sprite2D" parent="BounceWall7"]
+position = Vector2(-2.99954, 128)
+scale = Vector2(8, 8)
+texture = ExtResource("6_87jnx")
+
+[node name="Sprite2D6" type="Sprite2D" parent="BounceWall7"]
 position = Vector2(-3, 256)
 scale = Vector2(8, 8)
 texture = ExtResource("6_87jnx")
@@ -323,8 +351,8 @@ scale = Vector2(8, 8)
 texture = ExtResource("7_v2lxv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BounceWall7"]
-position = Vector2(47.6251, 252.662)
-shape = SubResource("RectangleShape2D_tr07t")
+position = Vector2(47.6251, 194.162)
+shape = SubResource("RectangleShape2D_n1hsm")
 
 [node name="BounceWall8" type="StaticBody2D" parent="." groups=["BounceWall"]]
 position = Vector2(627, 957)
@@ -362,6 +390,18 @@ texture = ExtResource("8_jpod7")
 position = Vector2(47.6251, 256)
 shape = SubResource("RectangleShape2D_rpgfc")
 
+[node name="BounceWall12" type="StaticBody2D" parent="." groups=["BounceWall"]]
+position = Vector2(993, -66)
+
+[node name="Sprite2D4" type="Sprite2D" parent="BounceWall12"]
+position = Vector2(-3, 256)
+scale = Vector2(8, 8)
+texture = ExtResource("8_jpod7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceWall12"]
+position = Vector2(47.6251, 256)
+shape = SubResource("RectangleShape2D_rpgfc")
+
 [node name="BounceWall10" type="StaticBody2D" parent="." groups=["BounceWall"]]
 position = Vector2(1216, 408)
 rotation = -1.5708
@@ -374,15 +414,6 @@ texture = ExtResource("8_jpod7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BounceWall10"]
 position = Vector2(37, 256)
 shape = SubResource("RectangleShape2D_rpgfc")
-
-[node name="Enemy2" parent="." instance=ExtResource("9_dnri4")]
-position = Vector2(1226, 928)
-
-[node name="Enemy3" parent="." instance=ExtResource("9_dnri4")]
-position = Vector2(1653, 545)
-
-[node name="Enemy4" parent="." instance=ExtResource("9_dnri4")]
-position = Vector2(815, 920)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(875, 545)
@@ -420,7 +451,7 @@ rotation = 1.57079
 shape = SubResource("RectangleShape2D_0pa53")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Wall"]
-position = Vector2(1866.5, 421.501)
+position = Vector2(1865, 427.501)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_vmlxp")
 
@@ -438,3 +469,9 @@ shape = SubResource("RectangleShape2D_ac0lx")
 position = Vector2(1099.88, 486.125)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_tdnd4")
+
+[node name="Enemy" parent="." instance=ExtResource("9_dvxul")]
+position = Vector2(1243, 894)
+
+[node name="Enemy4" parent="." instance=ExtResource("9_dvxul")]
+position = Vector2(1660, 532)

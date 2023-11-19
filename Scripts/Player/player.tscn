@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dawl00g8smvqm"]
+[gd_scene load_steps=42 format=3 uid="uid://dawl00g8smvqm"]
 
 [ext_resource type="Texture2D" uid="uid://b4gw1x0eclm6t" path="res://icon.svg" id="1_3acx4"]
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_l6e3u"]
@@ -35,6 +35,8 @@
 [ext_resource type="Texture2D" uid="uid://yjwo51ac8hum" path="res://Graphics/WizardAnimations/Idle/WizardIdle1Orb2.png" id="28_tlnts"]
 [ext_resource type="Texture2D" uid="uid://c7e8o11hnffrv" path="res://Graphics/WizardAnimations/Idle/WizardIdle1Orb3.png" id="29_k6a20"]
 [ext_resource type="Texture2D" uid="uid://cdikpav7vb3ar" path="res://Graphics/WizardAnimations/Idle/WizardIdle1Orb4.png" id="30_gb8k6"]
+[ext_resource type="Texture2D" uid="uid://dal53lixusye5" path="res://Graphics/Orb3.png" id="35_nw70m"]
+[ext_resource type="Texture2D" uid="uid://dukm6o1kutayh" path="res://Graphics/Orb2.png" id="37_hdu3q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ru4iu"]
 animations = [{
@@ -165,6 +167,92 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_cmihe"]
+resource_name = "orbAnimation"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Ammo/Ammo1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("37_hdu3q"), ExtResource("35_nw70m")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Ammo/Ammo2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("37_hdu3q"), ExtResource("35_nw70m")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Ammo/Ammo3:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("37_hdu3q"), ExtResource("35_nw70m")]
+}
+
+[sub_resource type="Animation" id="Animation_r1nna"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Ammo/Ammo1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("35_nw70m")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Ammo/Ammo2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_3acx4")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Ammo/Ammo3:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_3acx4")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h75xq"]
+_data = {
+"RESET": SubResource("Animation_r1nna"),
+"orbAnimation": SubResource("Animation_cmihe")
+}
+
 [node name="Player" type="Node2D"]
 script = ExtResource("1_l6e3u")
 bullet_scene = ExtResource("2_xju5u")
@@ -193,7 +281,7 @@ columns = 3
 [node name="Ammo1" type="TextureRect" parent="CanvasLayer/Ammo"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("1_3acx4")
+texture = ExtResource("35_nw70m")
 expand_mode = 1
 
 [node name="Ammo2" type="TextureRect" parent="CanvasLayer/Ammo"]
@@ -209,10 +297,17 @@ texture = ExtResource("1_3acx4")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 287.0
-offset_top = 49.0
-offset_right = 620.0
-offset_bottom = 113.0
+offset_left = 40.0
+offset_top = 133.0
+offset_right = 419.0
+offset_bottom = 197.0
 theme_override_font_sizes/font_size = 25
-text = "R - Reset  LPM - Shoot"
+text = "R - Reset  
+LMB - Shoot
+ESC - Menu"
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h75xq")
+}

@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://7bdr268v62ct" path="res://Graphics/MirrorMiddle.png" id="6_5ilx5"]
 [ext_resource type="Texture2D" uid="uid://cyicbxab7swa3" path="res://Graphics/MirrorBottom.png" id="7_68u7e"]
 [ext_resource type="Texture2D" uid="uid://hrwkmeq53fuj" path="res://Graphics/Mirror.png" id="8_gd8vu"]
-[ext_resource type="PackedScene" uid="uid://dgpbddkqombrf" path="res://Scripts/Enemy/enemy.tscn" id="9_xiywr"]
 [ext_resource type="PackedScene" uid="uid://bsdj7edr1hfqi" path="res://Scripts/Portals/portal_1.tscn" id="10_1epqo"]
+[ext_resource type="PackedScene" uid="uid://rj1dl2t342lt" path="res://Scripts/Enemy/enemy2.tscn" id="11_16y3h"]
 [ext_resource type="PackedScene" uid="uid://b682hw7rcwocb" path="res://Scripts/Portals/portal_2.tscn" id="11_xltq5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqy8o"]
@@ -368,12 +368,6 @@ texture = ExtResource("8_gd8vu")
 position = Vector2(37, 256)
 shape = SubResource("RectangleShape2D_rpgfc")
 
-[node name="Enemy" parent="." instance=ExtResource("9_xiywr")]
-position = Vector2(307, 251)
-
-[node name="Enemy2" parent="." instance=ExtResource("9_xiywr")]
-position = Vector2(1148, 609)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(875, 545)
 zoom = Vector2(0.8, 0.8)
@@ -416,3 +410,9 @@ portal = NodePath("../Portal2")
 [node name="Portal2" parent="." node_paths=PackedStringArray("portal") instance=ExtResource("11_xltq5")]
 position = Vector2(-67, 252)
 portal = NodePath("../Portal1")
+
+[node name="Enemy3" parent="." instance=ExtResource("11_16y3h")]
+position = Vector2(1146, 609)
+
+[node name="Enemy4" parent="." instance=ExtResource("11_16y3h")]
+position = Vector2(308, 250)

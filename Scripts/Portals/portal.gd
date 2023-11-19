@@ -4,6 +4,7 @@ class_name Portal extends Area2D
 
 
 func _ready() -> void:
+	$AnimatedSprite2D.play("default")
 	connect("area_entered",entered)
 
 func entered(area : Area2D) -> void:

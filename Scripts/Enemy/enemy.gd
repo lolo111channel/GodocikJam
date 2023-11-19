@@ -2,6 +2,9 @@ extends StaticBody2D
 
 var area2D : Area2D
 
+func _ready():
+	$Sprite2D.play("default")
+
 func _process(delta) -> void:
 	if is_instance_valid(area2D):
 		var distance = global_position.distance_to(area2D.global_position)

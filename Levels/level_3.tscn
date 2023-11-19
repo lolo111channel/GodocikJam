@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://7bdr268v62ct" path="res://Graphics/MirrorMiddle.png" id="6_v12wt"]
 [ext_resource type="Texture2D" uid="uid://cyicbxab7swa3" path="res://Graphics/MirrorBottom.png" id="7_co3rh"]
 [ext_resource type="Texture2D" uid="uid://hrwkmeq53fuj" path="res://Graphics/Mirror.png" id="8_6waia"]
-[ext_resource type="PackedScene" uid="uid://dgpbddkqombrf" path="res://Scripts/Enemy/enemy.tscn" id="8_f72k2"]
+[ext_resource type="PackedScene" uid="uid://rj1dl2t342lt" path="res://Scripts/Enemy/enemy2.tscn" id="9_htoos"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqy8o"]
 texture = ExtResource("1_2k8cb")
@@ -186,12 +186,6 @@ texture = ExtResource("7_co3rh")
 position = Vector2(47.6251, 252.662)
 shape = SubResource("RectangleShape2D_u4av3")
 
-[node name="Enemy" parent="." instance=ExtResource("8_f72k2")]
-position = Vector2(769, 267)
-
-[node name="Enemy2" parent="." instance=ExtResource("8_f72k2")]
-position = Vector2(1557, 375)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(875, 545)
 zoom = Vector2(0.8, 0.8)
@@ -232,3 +226,9 @@ shape = SubResource("RectangleShape2D_nphvg")
 position = Vector2(1544.5, 93.9999)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_blnb2")
+
+[node name="Enemy3" parent="." instance=ExtResource("9_htoos")]
+position = Vector2(768, 266)
+
+[node name="Enemy" parent="." instance=ExtResource("9_htoos")]
+position = Vector2(1556, 375)

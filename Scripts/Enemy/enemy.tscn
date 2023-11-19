@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgpbddkqombrf"]
+[gd_scene load_steps=6 format=3 uid="uid://dgpbddkqombrf"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy/enemy.gd" id="1_gpc2k"]
 [ext_resource type="Texture2D" uid="uid://df7s4lbgjl2f8" path="res://Graphics/TargetShield.png" id="2_poxbt"]
@@ -8,6 +8,17 @@ radius = 68.0074
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8hytd"]
 radius = 76.1052
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5h03n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_poxbt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Enemy" type="StaticBody2D" groups=["Enemy"]]
 script = ExtResource("1_gpc2k")
@@ -23,9 +34,9 @@ debug_color = Color(0.533333, 0, 0.141176, 0.419608)
 shape = SubResource("CircleShape2D_8hytd")
 debug_color = Color(0.556863, 0, 0.101961, 0.419608)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-41, -1)
 scale = Vector2(8, 8)
-texture = ExtResource("2_poxbt")
+sprite_frames = SubResource("SpriteFrames_5h03n")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

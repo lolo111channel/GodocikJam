@@ -27,7 +27,8 @@ func _ready() -> void:
 	
 	level_id = Global.current_level_id
 	next_level_id = Global.current_level_that_will_unlock
-
+	
+	$AnimationPlayer.play("orbAnimation")
 	
 func _process(delta) -> void:
 	

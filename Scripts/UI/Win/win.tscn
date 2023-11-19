@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d3tu0eht833vc"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Win/win.gd" id="1_ieobx"]
-[ext_resource type="Texture2D" uid="uid://b4gw1x0eclm6t" path="res://icon.svg" id="1_lvebm"]
+[ext_resource type="Texture2D" uid="uid://dukm6o1kutayh" path="res://Graphics/Orb2.png" id="2_wjqp1"]
 
 [node name="Win" type="Control"]
 layout_mode = 3
@@ -63,24 +63,21 @@ theme_override_constants/h_separation = 15
 columns = 3
 
 [node name="0" type="TextureRect" parent="CenterContainer/GridContainer/Panel/CenterContainer/GridContainer/CenterContainer/GridContainer"]
-visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("1_lvebm")
+texture = ExtResource("2_wjqp1")
 expand_mode = 1
 
 [node name="1" type="TextureRect" parent="CenterContainer/GridContainer/Panel/CenterContainer/GridContainer/CenterContainer/GridContainer"]
-visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("1_lvebm")
+texture = ExtResource("2_wjqp1")
 expand_mode = 1
 
 [node name="2" type="TextureRect" parent="CenterContainer/GridContainer/Panel/CenterContainer/GridContainer/CenterContainer/GridContainer"]
-visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("1_lvebm")
+texture = ExtResource("2_wjqp1")
 expand_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/GridContainer"]

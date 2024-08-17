@@ -1,6 +1,7 @@
 The game was made for Godocikowy Dżem 8
 
 Link to itch.io: https://lolo111code.itch.io/godot-jam
+
 Link to youtube gameplay: https://www.youtube.com/watch?v=PZ4e-xeqRCU
 
 # How to install?
